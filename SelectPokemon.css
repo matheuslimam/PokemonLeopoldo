@@ -1,0 +1,187 @@
+/* Estilos para a página de cadastro de treinador Pokémon */
+@font-face {
+    font-family: 'Pokemon Solid'; /* O nome que você deseja dar à fonte */
+    src: url('assets/Pokemon Solid.ttf') format('truetype'); /* Caminho para o arquivo de fonte */
+    /* Outras variações de formato de fonte (woff, woff2) podem ser adicionadas para compatibilidade com navegadores diferentes */
+}
+
+h1 {
+    position:absolute;
+    padding-bottom: 38%;
+    font-family: 'Pokemon Solid', sans-serif; /* Use a fonte personalizada aqui */
+    color: #fffb00;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
+    
+    /* Adiciona borda à fonte */
+    -webkit-text-stroke: 2px rgb(9, 98, 199); /* Para navegadores WebKit, como Chrome e Safari */
+  
+    
+}
+
+h2 {
+    font-family: 'Pokemon Solid', sans-serif; /* Use a fonte personalizada aqui */
+    color: #fffb00;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
+    
+    /* Adiciona borda à fonte */
+    -webkit-text-stroke: 2px rgb(9, 98, 199); /* Para navegadores WebKit, como Chrome e Safari */
+  
+    
+}
+
+.button{
+    position:relative;
+    margin:20px;
+  }
+  
+  .button a{
+    color:white;
+    font-family:Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:36px;
+    text-align: center;
+    text-decoration:none;
+    background-color:#FFA12B;
+    display:block;
+    position:relative;
+    padding:20px 40px;
+    
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-shadow: 0px 1px 0px #000;
+    filter: dropshadow(color=#000, offx=0px, offy=1px);
+    
+    -webkit-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+    -moz-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+    box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+    
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
+  .button a:active{
+    top:10px;
+    background-color:#F78900;
+    
+    -webkit-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+    -moz-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3pxpx 0 #915100;
+    box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+  }
+  
+  .button:after{
+    content:"";
+    height:100%;
+    width:100%;
+    padding:4px;
+    position: relative;
+    bottom:-15px;
+    left:-4px;
+    z-index:-1;
+    background-color:#2B1800;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace; /*mudar aqui depois*/
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+}
+
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.container .card{
+    position:relative;
+    width: 300px;
+    height: 400px;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .card .imgBx,
+.container .card .texBx {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.container .card .imgBx{
+    background: #fff;
+    height: 120px;
+    z-index: 1;
+    transform-origin: bottom;
+}
+
+.container .card:hover .imgBx{
+   transform: translateY(-100%) rotateX(90deg);
+}
+
+.container .card .texBx{
+    height: 280px;
+    background: var(--clr);
+    border-top: 8px solid #333;
+    transform-origin: top;
+    transition-delay: 0.3s;
+}
+
+.container .card:hover .texBx{
+    transform: translateY(100%) rotateX(90deg);
+ }
+
+.container .card .imgBx::before{
+    content: '';
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 144px;
+    height: 74px;
+    background: #fff;
+    border-bottom-left-radius: 80px ;
+    border-bottom-right-radius: 80px ;
+    z-index: 1;
+ }
+
+ .container .card .texBx::before{
+    content: '';
+    position: absolute;
+    top: -8px;
+    width: 160px;
+    height: 80px;
+    background: #333;
+    border-bottom-left-radius: 80px ;
+    border-bottom-right-radius: 80px ;
+ }
+
