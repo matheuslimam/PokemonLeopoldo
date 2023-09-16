@@ -50,7 +50,7 @@ h2 {
     text-align: center;
     text-decoration:none;
     background-color:#FFA12B;
-    display:block;
+    display:flex;
     position:relative;
     padding:20px 40px;
     
@@ -112,7 +112,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 80px;
+    gap: 60px;
     flex-wrap: wrap;
 }
 
