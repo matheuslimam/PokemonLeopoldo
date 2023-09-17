@@ -4,20 +4,22 @@ body {
     padding: 0;
     background-color: #ffd500;
   }
+  
   #header {
     padding: 0px;
     margin: 10px;
     text-align: center;
-    align-items: center;
   }
+  
   #content {
-    display: flex;
     max-width: 95%;
     margin: 10px auto;
     padding: 20px;
-    background-color: white;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    /* background-color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
+    text-align: center; /* Adicionado para centralizar o conteúdo */
   }
+  
   #navbar {
     background-color: #c7a008;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
@@ -25,29 +27,34 @@ body {
     height: 12%;
     display: flex;
     flex-direction: row;
+    text-align: center; /* Removido, não é necessário */
     align-items: center;
     position: fixed;
-    text-align: center;
-    text-decoration-color: black;
-    /*round borders*/
+    left: 0; /* Adicionado */
+    right: 0; /* Adicionado */
+    margin: auto; /* Adicionado */
     border-radius: 15px;
+    left: 50%; /* Adicionado */
+    transform: translateX(-50%); /* Adicionado */
   }
-.icon-button{
-    background-color: #ff0000;
-    border-color: none;
-    height: 100%;
-    width: 23%;
-    margin-right: 20px;
+  
+  .back_home {
+    position: fixed;
+    top: 5.5%;
+    left: 3.5%;
+    height: fixed;
+    width: fixed;
+    transform: translateX(-50%);
+    background-color: #ff3434;
+    padding: 18px 20px;
     border-radius: 15px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-
-}
-
-.material-symbols-outlined {
+    margin-right: 20px;
+  }
+  .back_home .icon {
+    transform: scale(1.5);
+  }
+  
+  .material-symbols-outlined {
     font-variation-settings:
     'FILL' 0,
     'wght' 400,
@@ -56,5 +63,11 @@ body {
     color: #000;
     font-size: 30px;
     size: 80%;
-}
+  }
 
+  h1 {
+    flex-grow: 1; /* Isso faz com que o texto "Configurações" ocupe o espaço restante e se centralize */
+  }
+
+  
+  
