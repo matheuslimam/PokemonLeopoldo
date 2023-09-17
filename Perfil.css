@@ -1,10 +1,7 @@
 body {
     font-family: "Arial", sans-serif;
     text-align: center;
-    background-image: url("imgs/map.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    filter: blur(3px);
+    background-color:#ffd500;
 }
 
 h1 {
