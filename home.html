@@ -7,26 +7,52 @@
     <title>Sua Página</title>
 </head>
 <body>
+    <audio id="musica" loop>
+        <source src="soundtrack/Chill & Relaxing Pokémon Music Mix_YMEblRM4pGc.mp3" type="audio/mpeg">
+        Your browser does not support the audio element....
+    </audio>
+
     <div class="mapa">
         <!-- Seu mapa principal aqui -->
     </div>
-    <div class="contador">
+    <div id="contador" class="contador">
         <img src="imgs/moeda.png" alt="Moeda">
         <span id="contadorMoedas" class="contadorMoedas">0</span>
     </div>
-    <div class="horario">
+    <div id="horario" class="horario">
         <span id="horarioAtual"></span>
     </div>
-    <div class="perfil">
-        <p>Perfil</p>
-    </div>
-    <nav class="navbar">
+    
+    <nav id="navbar" class="navbar">
         <ul>
-            <li><a href="config.html">Config</a></li>
-            <li><a href="inventario.html">Inventário</a></li>
-            <li><a href="pokedex.html">Pokedex</a></li>
+            <li><a href="config.html">
+                <img class="icon" src="imgs/configuracoes.png"></a>
+            </li>
+            <li><a href="inventario.html">
+                <img class="icon" src="imgs/gestao-de-inventario.png">
+            </a>
+        </li>
+            <li><a href="pokedex.html">
+                <img class="icon" src="imgs/pokebola.png">
+            </a>
+        </li>
         </ul>
     </nav>
+
+    <div id="time" class="time">
+        <a href="time.html">
+            <img class="icon" src="imgs/time-azul.png">
+        </a>
+    </div>
+
+    <div id="perfil" class="perfil">
+        <a href="Perfil.html">
+            <img class="icon" src="imgs/treinador-de-pokemon.png">
+        </a>
+    </div>
+    <div id="location" class="location">
+        <p>Ilha da pirocona</p>
+    </div>
     <script src="home.js"></script>
 </body>
 </html>

@@ -4,9 +4,13 @@ function handleCredentialResponse(response) {
           if (response.credential) {
             // Redirecionar o usuário para a página desejada
             window.location.href = "loading.html";
-        }
-          console.log(data)
+            //const redirectUrl = `Perfil.html?pic=${encodeURIComponent(data.picture)}`;
 
+            // Redirecionar o usuário para a página "loading.html" com o parâmetro de consulta
+           // window.location.href = redirectUrl;
+        }
+        console.log(data)
+          
           
 }
 window.onload = function () {
@@ -20,6 +24,7 @@ window.onload = function () {
   );
   google.accounts.id.prompt(); // also display the One Tap dialog
 }
+
 
 
 
