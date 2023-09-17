@@ -25,10 +25,10 @@ body {
 }
 
 .contador {
-    position: fixed;
+    position:fixed;
     top: 10px;
     right: 10px;
-    display: flex;
+    display:flex;
     align-items: center;
     background-color: #f0df7ecc;
     padding: 20px 20px;
@@ -43,9 +43,9 @@ body {
 }
 
 .contadorMoedas{
+    padding: 10px 10px;
     padding-left: 5px;
     font-size: 30px;
-    
 }
 
 .horario {
@@ -130,3 +130,4 @@ body {
     letter-spacing: 3px;
     -webkit-text-stroke: 1px rgb(9, 98, 199);
 }
+
