@@ -28,6 +28,8 @@ setInterval(atualizarHorario, 1000); // Atualiza o horário a cada segundo
         });
     }
     
+    var elementosOcultos = false;
+
     window.addEventListener('keydown', function(event) {
         // Verifica se a tecla pressionada é a tecla "H"
         if (event.key === 'h' || event.key === 'H') {
@@ -38,15 +40,29 @@ setInterval(atualizarHorario, 1000); // Atualiza o horário a cada segundo
             var elemento4 = document.getElementById('time');
             var elemento5 = document.getElementById('perfil');
             var elemento6 = document.getElementById('location');
-    
-            if (elemento1 && elemento2 ) {
+       
+        if (elementosOcultos) {
+            if (elemento1 && elemento2 && elemento3 && elemento4 && elemento5 && elemento6) {
+                elemento1.style.display = 'block';
+                elemento2.style.display = 'block';
+                elemento3.style.display = 'block';
+                elemento4.style.display = 'block';
+                elemento5.style.display = 'block';
+                elemento6.style.display = 'block';
+                elementosOcultos = false;
+            }
+        }
+        else{
+            if (elemento1 && elemento2 && elemento3 && elemento4 && elemento5 && elemento6) {
                 elemento1.style.display = 'none';
                 elemento2.style.display = 'none';
                 elemento3.style.display = 'none';
                 elemento4.style.display = 'none';
                 elemento5.style.display = 'none';
                 elemento6.style.display = 'none';
-            }
+                elementosOcultos = true;
+        }
+        }
         }
     });
     
