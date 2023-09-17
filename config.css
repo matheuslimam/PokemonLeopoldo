@@ -27,27 +27,31 @@ body {
     height: 12%;
     display: flex;
     flex-direction: row;
+    text-align: center; /* Removido, não é necessário */
     align-items: center;
     position: fixed;
     left: 0; /* Adicionado */
     right: 0; /* Adicionado */
     margin: auto; /* Adicionado */
-    text-align: center; /* Removido, não é necessário */
     border-radius: 15px;
     left: 50%; /* Adicionado */
     transform: translateX(-50%); /* Adicionado */
   }
   
-  
   .back_home {
     position: fixed;
     top: 5.5%;
-    left: 5.2%;
+    left: 3.5%;
+    height: fixed;
+    width: fixed;
     transform: translateX(-50%);
     background-color: #f0df7ecc;
     padding: 18px 20px;
     border-radius: 15px;
     margin-right: 20px;
+  }
+  .back_home .icon {
+    transform: scale(1.5);
   }
   
   .material-symbols-outlined {
@@ -60,4 +64,10 @@ body {
     font-size: 30px;
     size: 80%;
   }
+
+  h1 {
+    flex-grow: 1; /* Isso faz com que o texto "Configurações" ocupe o espaço restante e se centralize */
+  }
+
+  
   
