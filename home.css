@@ -20,7 +20,7 @@ body {
     left: -800px;
     width: 300%;
     height: 400%;
-    opacity: 0.7;
+    opacity: 0.95;
     z-index: -1;
 }
 
@@ -30,7 +30,7 @@ body {
     right: 10px;
     display: flex;
     align-items: center;
-    background-color: #b9a257a4;
+    background-color: #f0df7ecc;
     padding: 20px 20px;
     border-radius: 7px;
     
@@ -52,7 +52,7 @@ body {
     position: fixed;
     top: 10px;
     left: 10px;
-    background-color: #b9a2578c;
+    background-color: #f0df7ecc;
     padding: 0px 20px;
     border-radius: 7px;
     font-size: 30px;
