@@ -1,0 +1,17 @@
+body {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    background-color:#ffd500;
+}
+
+h1 {
+    font-family: 'Pokemon Solid', sans-serif; /* Use a fonte personalizada aqui */
+    color: #fffb00;
+    text-transform: uppercase;
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
+    
+    /* Adiciona borda à fonte */
+    -webkit-text-stroke: 2px rgb(9, 98, 199); /* Para navegadores WebKit, como Chrome e Safari */
+}

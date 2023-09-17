@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="Time.css">
+        <title style="text-align: center;">Time</title>
+    </head>
+
+    <body>
+        <h1>Monte o seu time!</h1>
+        <fieldset>
+            <legend>Escolha até 3 pokemóns para montar o seu time:</legend>
+            <div style="display: flex; flex-direction: column;">
+                <div>
+                <input type="checkbox" id="pokemon1" name="pokemon1" checked />
+                <label for="pokemon1">Bulbasaur</label>
+                <div>
+                <input type="checkbox" id="pokemon1" name="pokemon1" checked />
+                <label for="pokemon1">Bulbasaur</label>
+                </div>
+            
+                <div>
+                <input type="checkbox" id="pokemon2" name="pokemon2" />
+                <label for="pokemon2">Ivysaur</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon3" name="pokemon3" />
+                    <label for="pokemon3">Venusaur</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon4" name="pokemon4" />
+                    <label for="pokemon4">Charmander</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon5" name="pokemon5" />
+                    <label for="pokemon5">Charmeleon</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon6" name="pokemon6" />
+                    <label for="pokemon6">Charizard</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon7" name="pokemon7" />
+                    <label for="pokemon7">Squirtle</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon8" name="pokemon8" />
+                    <label for="pokemon8">Wartortle</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon9" name="pokemon9" />
+                    <label for="pokemon9">Blastoise</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon10" name="pokemon10" />
+                    <label for="pokemon10">Caterpie</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon11" name="pokemon11" />
+                    <label for="pokemon11">Metapod</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon12" name="pokemon12" />
+                    <label for="pokemon12">Butterfree</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon13" name="pokemon13" />
+                    <label for="pokemon13">Weedle</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon14" name="pokemon14" />
+                    <label for="pokemon14">Kakuna</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="pokemon15" name="pokemon15" />
+                    <label for="pokemon15">Beedrill</label>
+                </div>
+            </div>
+          </fieldset>
+
+          <script>
+            // Captura todos os elementos checkbox dentro do fieldset
+            const checkboxes = document.querySelectorAll('fieldset input[type="checkbox"]');
+            
+            // Define o número máximo de seleções permitidas
+            const maxSelections = 3;
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    // Conta quantas checkboxes estão selecionadas
+                    const selectedCheckboxes = document.querySelectorAll('fieldset input[type="checkbox"]:checked').length;
+        
+                    // Se exceder o número máximo, desmarca a última checkbox selecionada
+                    if (selectedCheckboxes > maxSelections) {
+                        checkbox.checked = false;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
