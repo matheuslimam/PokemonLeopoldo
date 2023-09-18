@@ -6,7 +6,7 @@ class Sprite{
 
         this.image.onload = () => {
             this.width = this.image.width / this.frames.max
-            this.height = this.image.height
+            this.height = this.image.height - 18
         }
         this.moving = false
         this.sprites = sprites
@@ -16,13 +16,14 @@ class Sprite{
             this.image,
             this.frames.val * this.width,
             0,
-            this.image.width / this.frames.max,
+            this.image.width / this.frames.max ,
             this.image.height,
             this.position.x,
             this.position.y,
             this.image.width / this.frames.max,
             this.image.height
         )   
+        //c.fillRect(this.position.x, this.position.y, this.image.width / this.frames.max , this.height)
         if(this.moving){
         if(this.frames.max > 1){
             this.frames.elapsed++
@@ -45,7 +46,7 @@ class Boundary {
         this.height = 48
     }
     draw(){
-        c.fillStyle = 'rgba(255,0,0, 0.2)'
+        c.fillStyle = 'rgba(255,0,0, 0)'
         c.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
 }
@@ -56,8 +57,8 @@ class ImageCoin {
       this.image = new Image();
       this.image.src = imageSrc;
       this.collected = false;
-      this.width = 30; 
-      this.height = 30; 
+      this.width = 40; 
+      this.height = 40; 
     }
   
     draw() {

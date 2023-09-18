@@ -4,6 +4,13 @@
     /* Outras variações de formato de fonte (woff, woff2) podem ser adicionadas para compatibilidade com navegadores diferentes */
 }
 
+html, body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
 
 body {
     margin: 0;
