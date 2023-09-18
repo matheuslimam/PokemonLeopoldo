@@ -67,7 +67,7 @@ const player = new Sprite({
       x: canvas.width * 2 -115,
       y: canvas.height * 2 -20  
     },
-    image: playerDownImage,
+    image: playerDownImage ,
     frames: {
       max: 4,
     },
