@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
+    <head>
+        <title>loading</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
 
     p{
     text-align: center;
@@ -55,13 +56,14 @@
     100% { transform: rotate(360deg); }
     }
     </style>
-</head>
-<body>
+    </head>
+    <body>
 
-<div class="loader"></div>
-<p>Seu mestre pokemon será criado em <span id="contador">10</span> segundos.</p>
-</body>
-<script>
+        <div class="loader"></div>
+        <p>Seu mestre pokemon será criado em <span id="contador">10</span>
+            segundos.</p>
+    </body>
+    <script>
     // Função para atualizar o contador e redirecionar após o tempo especificado
     function redirecionar() {
         var contadorElement = document.getElementById("contador");
