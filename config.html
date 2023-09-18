@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="config.css">
-    <title>Configurações</title>
-    <script src="script.js" async></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="config.css">
+        <title>Configurações</title>
+        <script src="script.js" async></script>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
-<body>
-    <div id="header">
-        
-    </div>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+    <body>
+        <div id="header">
 
-    <div id="content">
-        
-          <div id="navbar">
-            <a href="home.html">
-                <div id="back_home" class="back_home">
-                    <a href="home.html">
-                        <img class="icon" height="200%"  src="icons\arrow_back.svg">
-                    </a>
-                </div>
-            </a>
-            <h1>Configurações</h1>
         </div>
-    </div>
-</body>
+
+        <div id="content1">
+            <div id="navbar">
+                <a href="home.html">
+                    <div id="back_home" class="back_home">
+                        <a href="home.html">
+                            <img class="icon" height="200%"
+                                src="icons\arrow_back.svg">
+                        </a>
+                    </div>
+                </a>
+                <h1>Configurações</h1>
+            </div>
+            <div id="configs">
+                <div id="volume_control" class="slider">
+                    <h3>Volume:</h3>
+                    <label class="slider">
+                        <input type="range" class="level">
+                    </label>
+                    <!-- Button turn of the volume 
+                <button id="volume_button" onclick="volume_button()">
+                    <img id="volume_icon" src="icons\volume_off.svg">
+                </button>
+                -->
+                </div>
+                <div id="deslogar">
+
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
