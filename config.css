@@ -7,6 +7,15 @@ h1 {
   /* Adiciona borda à fonte */
   -webkit-text-stroke: 2px rgb(9, 98, 199); /* Para navegadores WebKit, como Chrome e Safari */
 }
+h2 {
+  font-family: 'Pokemon Solid', sans-serif; /* Use a fonte personalizada aqui */
+  color: #fffb00;
+  font-size: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
+  
+  /* Adiciona borda à fonte */
+  -webkit-text-stroke: 2px rgb(9, 98, 199); /* Para navegadores WebKit, como Chrome e Safari */
+}
 
 body {
   font-family: Arial, sans-serif;
