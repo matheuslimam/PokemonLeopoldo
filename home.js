@@ -66,12 +66,4 @@ setInterval(atualizarHorario, 1000); // Atualiza o horário a cada segundo
         }
     });
     
-// Simulação de contador de moedas
-let contadorMoedas = 0;
-document.getElementById('contadorMoedas').textContent = contadorMoedas;
 
-// Evento para incrementar o contador de moedas (simulação)
-document.addEventListener('click', () => {
-    contadorMoedas++;
-    document.getElementById('contadorMoedas').textContent = contadorMoedas;
-});

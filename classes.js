@@ -49,3 +49,22 @@ class Boundary {
         c.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
 }
+
+class ImageCoin {
+    constructor(position, imageSrc) {
+      this.position = position;
+      this.image = new Image();
+      this.image.src = imageSrc;
+      this.collected = false;
+      this.width = 30; 
+      this.height = 30; 
+    }
+  
+    draw() {
+      if (!this.collected) {
+        c.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
+      }
+    }
+  }
+  
+  

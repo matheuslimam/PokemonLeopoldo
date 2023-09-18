@@ -102,8 +102,19 @@ const keys = {
     }
 }
 
+const coins = [];
+const min = 1;
+const max = 1200;
 
-const movables = [background, ...boundaries]
+// Adicione algumas moedas ao mapa, por exemplo:
+for (let i = 0; i < 5; i++){
+const randomIntX = Math.floor(Math.random() * (max - min + 1)) + min;
+const randomIntY = Math.floor(Math.random() * (max - min + 1)) + min;
+coins.push(new ImageCoin({ x: randomIntX , y: randomIntY  }, 'imgs/moeda.png'));
+}
+
+
+const movables = [background, ...boundaries, ...coins]
 
 function rectangularCollision({rectangle1, rectangle2}){
  return(
@@ -113,6 +124,10 @@ function rectangularCollision({rectangle1, rectangle2}){
     rectangle1.position.y + rectangle1.height >= rectangle2.position.y)
     console.log('colidando')
 }
+
+// Simulação de contador de moedas
+let contadorMoedas = 0;
+
 function animate(){
     window.requestAnimationFrame(animate)
     background.draw()
@@ -121,6 +136,20 @@ function animate(){
   })
    player.draw()
 
+   coins.forEach((coin) => {
+    coin.draw();
+   
+   if (!coin.collected && rectangularCollision({ rectangle1: player, rectangle2: coin })) {
+      coin.collected = true;
+      console.log('coletada')
+      contadorMoedas++;
+      document.getElementById('contadorMoedas').textContent = contadorMoedas
+      // Aqui você pode adicionar lógica para contabilizar as moedas
+      // Por exemplo: coinsCollected++;
+    }
+  });
+
+   
     let moving = true
     player.moving = false
     if (keys.w.pressed && lastkey == 'w'){
