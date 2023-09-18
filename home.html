@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
     <title>Sua Página</title>
+    <link rel="stylesheet" href="home.css">
+
 </head>
 <body>
-    <audio id="musica" loop>
+<canvas style="z-index: 0;"></canvas>
+
+ <audio id="musica" loop>
         <source src="soundtrack/Chill & Relaxing Pokémon Music Mix_YMEblRM4pGc.mp3" type="audio/mpeg">
         Your browser does not support the audio element....
     </audio>
@@ -51,8 +54,12 @@
         </a>
     </div>
     <div id="location" class="location">
-        <p>Ilha da pirocona</p>
+        <p>Ilha do governador</p>
     </div>
-    <script src="home.js"></script>
+
+<script src="home.js"></script>
+<script src="data/collisions.js"></script>
+<script src="classes.js"></script>
+<script src="walktest.js"></script>
 </body>
 </html>
