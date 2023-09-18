@@ -11,14 +11,14 @@ body {
   text-align: center;
 }
 
-#content1 {
+#content {
   max-width: 95%;
+  margin: 0 auto;
   margin: 5px;
   padding: 10px;
-  /* background-color: white;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
-  text-align: center; /* Adicionado para centralizar o conteúdo */
-  /*max-height: 12%;*/
+  background-color: transparent;
+  text-align: center;  /* Adicionado para centralizar o conteúdo  */
+  max-height: 12%;
   justify-items: center;
 }
 
@@ -26,18 +26,17 @@ body {
   background-color: #c7a008;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   width: 80%;
+  height: auto;
   max-height: 12%;
-  display: flex;
-  flex-direction: row;
-  text-align: center; /* Removido, não é necessário */
+  text-align: center; 
   align-items: center;
   position: fixed;
-  left: 0; /* Adicionado */
-  right: 0; /* Adicionado */
-  margin: auto; /* Adicionado */
+  left: 0;
+  right: 0;
+  margin: auto; 
   border-radius: 15px;
-  left: 50%; /* Adicionado */
-  transform: translateX(-50%); /* Adicionado */
+  left: 50%; 
+  transform: translateX(-50%);
 }
 
 .back_home {
@@ -158,3 +157,20 @@ h1 {
 .slider:hover .level {
   height: calc(var(--slider-height) * 2);
 }
+
+.container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  left: 50%;
+  margin-top: 20px;
+}
+
+.child {
+  background-color: #c7a008;
+  height: 20px;
+  align-items: center;
+}
+
