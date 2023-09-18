@@ -1,7 +1,5 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
   background-color: #ffd500;
 }
 
@@ -9,31 +7,15 @@ body {
   padding: 0px;
   margin: 10px;
   text-align: center;
+  height: 5%;
 }
-
-#content {
-  max-width: 95%;
-  margin: 0 auto;
-  margin: 5px;
-  padding: 10px;
-  background-color: transparent;
-  text-align: center;  /* Adicionado para centralizar o conteúdo  */
-  max-height: 12%;
-  justify-items: center;
-}
-
 #navbar {
   background-color: #c7a008;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   width: 80%;
   height: auto;
-  max-height: 12%;
   text-align: center; 
-  align-items: center;
   position: fixed;
-  left: 0;
-  right: 0;
-  margin: auto; 
   border-radius: 15px;
   left: 50%; 
   transform: translateX(-50%);
@@ -55,122 +37,15 @@ body {
   transform: scale(1.5);
 }
 
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-  color: #000;
-  font-size: 30px;
-  size: 80%;
-}
-
-h1 {
-  flex-grow: 1; /* Isso faz com que o texto "Configurações" ocupe o espaço restante e se centralize */
-}
-
-#configs {
-  margin-top: 100px; /* Adicionado um espaço de 12% do viewport height entre o #navbar e #configs */
-  background-color: #c7a008;
-  max-width: 80%;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  align-items: center;
-}
-
-#volume_slider {
-  width: 90%; /* O slider ocupará toda a largura da div volume_control */
-  /* -webkit-appearance: none;
-  appearance: none;
-  height: 10px;
-  border-radius: 5px;
-  background: #dcdcdc;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  cursor: pointer; */
-}
-
-.slider {
-  width: 100%; /* O slider ocupará toda a largura da div volume_control */
-  width: 90%;
-  margin-top: 0 auto; /* O slider ficará centralizado */
-  /* slider */
-  --slider-width: 100%;
-  --slider-height: 6px;
-  --slider-bg: rgb(82, 82, 82);
-  --slider-border-radius: 999px;
-  /* level */
-  --level-color: #fff;
-  --level-transition-duration: 0.1s;
-  /* icon */
-  --icon-margin: 15px;
-  --icon-color: var(--slider-bg);
-  --icon-size: 25px;
-}
-
-.slider {
-  cursor: pointer;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-  -ms-flex-direction: row-reverse;
-  flex-direction: row-reverse;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.slider .volume {
-  display: inline-block;
-  vertical-align: top;
-  margin-right: var(--icon-margin);
-  color: var(--icon-color);
-  width: var(--icon-size);
-  height: auto;
-}
-
-.slider .level {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: var(--slider-width);
-  height: var(--slider-height);
-  background: var(--slider-bg);
-  overflow: hidden;
-  border-radius: var(--slider-border-radius);
-  -webkit-transition: height var(--level-transition-duration);
-  -o-transition: height var(--level-transition-duration);
-  transition: height var(--level-transition-duration);
-  cursor: inherit;
-}
-
-.slider .level::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 0;
-  height: 0;
-  -webkit-box-shadow: -200px 0 0 200px var(--level-color);
-  box-shadow: -200px 0 0 200px var(--level-color);
-}
-
-.slider:hover .level {
-  height: calc(var(--slider-height) * 2);
-}
-
 .container{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  left: 50%;
-  margin-top: 20px;
+  margin: 10px;
+
 }
 
-.child {
+.child{
+  width: 50%;
+  height: 200px;
+  margin: 10px;
   background-color: #c7a008;
-  height: 20px;
-  align-items: center;
+  border: 1px solid black;
 }
-
