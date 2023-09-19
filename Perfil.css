@@ -7,14 +7,37 @@ body {
 h1 {
     font-family: 'Pokemon Solid', sans-serif; /* Use a fonte personalizada aqui */
     color: #fffb00;
-    text-transform: uppercase;
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 40px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
     
     /* Adiciona borda à fonte */
     -webkit-text-stroke: 2px rgb(9, 98, 199); /* Para navegadores WebKit, como Chrome e Safari */
+  }
+
+#navbar {
+    background-color: #c7a008;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    height: auto;
+    text-align: center;
+    position: sticky; 
+    border-radius: 15px;
+    top:2%;
+    transform: translateX(0%);
 }
+  
+  .back_home {
+    position: fixed;
+    top: 8.5%;
+    left: 3.5%;
+    height: fixed;
+    width: fixed;
+    transform: translateX(-50%);
+    background-color: #ff3434;
+    padding: 18px 20px;
+    border-radius: 15px;
+    margin-right: 20px;
+  }
 
 .info-box {
     background-color: #f0f0f0; /* Cor de fundo da caixa */
@@ -35,3 +58,18 @@ h1 {
     line-height: 200px; /* Centraliza o conteúdo verticalmente no círculo */
     margin: 0 auto; /* Centraliza horizontalmente */
 }
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+  
+  .child{
+    width: 80%;
+    height: auto;
+    margin: 10px;
+    background-color: #c7a008;
+    border: 1px solid black;
+    border-radius: 15px;  
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
