@@ -141,7 +141,6 @@ volumeRange.addEventListener('input', function() {
         // Verifica se a tecla pressionada é a tecla "H"
         if (event.key === 'h' || event.key === 'H') {
             // Oculta os elementos com ID "elemento1" e "elemento2"
-            console.log(appear)
             var elemento1 = document.getElementById('contador');
             var elemento2 = document.getElementById('horario');
             var elemento3 = document.getElementById('navbar');
