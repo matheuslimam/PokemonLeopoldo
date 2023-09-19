@@ -8,6 +8,38 @@ function atualizarHorario() {
 
 setInterval(atualizarHorario, 1000); // Atualiza o horário a cada segundo
 
+// JavaScript para mostrar o popup
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popup');
+    const ligarSomButton = document.getElementById('ligarSom');
+    const naoLigarSomButton = document.getElementById('naoLigarSom');
+
+    // Função para mostrar o popup
+    function mostrarPopup() {
+        popup.style.display = 'flex';
+    }
+
+    // Função para esconder o popup
+    function esconderPopup() {
+        popup.style.display = 'none';
+    }
+
+    // Event listener para mostrar o popup
+    setTimeout(mostrarPopup, 2000); // Mostrar o popup após 1 segundo
+
+    // Event listeners para os botões
+    ligarSomButton.addEventListener('click', function() {
+        // Coloque aqui o código para ativar o som
+        esconderPopup();
+        playSound("soundtrack/backgroundaudio.mp3");
+    });
+
+    naoLigarSomButton.addEventListener('click', function() {
+        // Coloque aqui o código para não ativar o som
+        esconderPopup();
+    });
+});
+
 
 /* window.onload = function audio() {
     var musica = document.getElementById('musica');
@@ -32,24 +64,19 @@ setInterval(atualizarHorario, 1000); // Atualiza o horário a cada segundo
 } */
 
 
-
-
-/* window.onload = function(){
-    playSound("backgroundaudio.wav");
-    console.log('audioTocando')
-}
-
 function playSound(audioname){
     let audio = new Audio(audioname);
     audio.loop = true;
     audio.play();
-} */
+} 
 
-document.addEventListener("DOMContentLoaded", function() {
-  var audio = document.getElementById("musicaDeFundo");
-  audio.play();
+/* const volumeRange = document.getElementById('volumeRange');
+
+volumeRange.addEventListener('input', function() {
+    const novoVolume = parseFloat(this.value); // Obtém o valor do slider como um número decimal
+    playSound.volume = novoVolume; // Define o volume da música para o novo valor
 });
-
+ */
     
     var elementosOcultos = false;
 

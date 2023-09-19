@@ -10,12 +10,16 @@
 <body>
 <canvas style="z-index: 0;"></canvas>
 
-<audio id="musica" autoplay loop>
-    <source src="backgroundaudio.wav" type="audio/mpeg">
-    Seu navegador não suporta a reprodução de áudio.
-  </audio>
   
-
+  <div class="popup-container" id="popup">
+    <div class="popup-box">
+        <h2>Você deseja ligar o som?</h2>
+        <div class="popup-buttons">
+            <button class="popup-button" id="ligarSom">Sim</button>
+            <button class="popup-button" id="naoLigarSom">Não</button>
+        </div>
+    </div>
+</div>
 
     <div class="mapa">
         <!-- Seu mapa principal aqui -->
