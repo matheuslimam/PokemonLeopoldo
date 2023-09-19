@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="Perfil.css">
-    <title style="text-align: center;">Perfil do treinador</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="Perfil.css">
+        <title style="text-align: center;">Perfil do treinador</title>
+    </head>
 
-<body>
-    <h1>Perfil do treinador</h1>
-    <br>
-    <br>
-    <div class="photo" style="margin-bottom: 30;">
-        <img id="pic" />
-    </div>
-    <h2>Nome do treinador</h2>
-    <div class="info-box" style="margin-top: -15px;">
-        <p id="fullname"></p>
-    </div>
-    <h2>Idade</h2>
-    <div class="info-box" style="margin-top: -15px;">
-        <p id="idade"></p>
-    </div>
-    <h2>Pokemón favorito</h2>
-    <div class="info-box" style="margin-top: -15px;">
-        <p id="pokemon"></p>
-    </div>
-    <script src="Cadastro.js"></script>
-</body>
+    <body>
+        <div class="container" id="content">
+            <div class="child" id="navbar">
+                <a href="home.html">
+                    <div id="back_home" class="back_home">
+                        <a href="home.html">
+                            <img class="icon" height="200%"
+                                src="icons\arrow_back.svg">
+                        </a>
+                    </div>
+                </a>
+                <h1>Perfil do treinador</h1>
+            </div>
+            <div class="photo" style="margin-bottom: 30;">
+                <img id="pic" />
+            </div>
+            <h2>Nome do treinador</h2>
+            <div class="info-box" style="margin-top: -15px;">
+                <p id="fullname"></p>
+            </div>
+            <h2>Idade</h2>
+            <div class="info-box" style="margin-top: -15px;">
+                <p id="idade"></p>
+            </div>
+            <h2>Pokemón favorito</h2>
+            <div class="info-box" style="margin-top: -15px;">
+                <p id="pokemon"></p>
+            </div>
+            <script src="Cadastro.js"></script>
+        </div>
+
+    </body>
 
 </html>
