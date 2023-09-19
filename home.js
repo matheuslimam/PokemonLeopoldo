@@ -8,11 +8,8 @@ function atualizarHorario() {
 
 setInterval(atualizarHorario, 1000); // Atualiza o horário a cada segundo
 
-let mouseMovido = false;
 
-// Event listener para detectar o movimento do mouse
-document.addEventListener('mousemove', function() {
-    if (!mouseMovido) {
+/* window.onload = function audio() {
     var musica = document.getElementById('musica');
     var aumentarVolume = document.getElementById('aumentarVolume');
     var diminuirVolume = document.getElementById('diminuirVolume');
@@ -28,16 +25,31 @@ document.addEventListener('mousemove', function() {
             musica.volume -= 0.1; // Diminui o volume em 10%
         }
     });
-    }
+
 
     // Inicia a reprodução programaticamente
     musica.play();
+} */
+
+
+
+
+/* window.onload = function(){
+    playSound("backgroundaudio.wav");
+    console.log('audioTocando')
+}
+
+function playSound(audioname){
+    let audio = new Audio(audioname);
+    audio.loop = true;
+    audio.play();
+} */
+
+document.addEventListener("DOMContentLoaded", function() {
+  var audio = document.getElementById("musicaDeFundo");
+  audio.play();
 });
 
-
-
-
-  
     
     var elementosOcultos = false;
 
