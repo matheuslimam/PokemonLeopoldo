@@ -60,9 +60,9 @@ header {
     width: 30%;
     min-width: 30%;
     height: 150px;
+    background-color:#ffd500;
     margin-bottom: 10px; /* Espaçamento vertical entre as opções */
-    margin-left: 10px;
-    border: 3px solid rgb(9, 98, 199); /* Adiciona borda */
+    border: 3px solid #0091ff; /* Adiciona borda */
 }
 
 .checkbox-option img{

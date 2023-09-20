@@ -74,7 +74,7 @@ h1 {
     flex-direction: column;
     align-items: center;
   }
-  #grandchild{
+  .grandchild{
     display: flex;
     flex-direction: column;
     align-items: center;
