@@ -124,16 +124,11 @@ function playSound(audioname){
     audio.loop = true;
     document.body.addEventListener("mousemove", function () {
         audio.play()
+        
     })
 } 
 
-/* const volumeRange = document.getElementById('volumeRange');
 
-volumeRange.addEventListener('input', function() {
-    const novoVolume = parseFloat(this.value); // Obtém o valor do slider como um número decimal
-    playSound.volume = novoVolume; // Define o volume da música para o novo valor
-});
- */
     
     var elementosOcultos = false;
 
