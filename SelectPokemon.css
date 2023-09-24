@@ -5,22 +5,19 @@
     /* Outras variações de formato de fonte (woff, woff2) podem ser adicionadas para compatibilidade com navegadores diferentes */
 }
 
-h1 {
+/* h1 {
     position:absolute;
     padding-bottom: 38%;
-    font-family: 'Pokemon Solid', sans-serif; /* Use a fonte personalizada aqui */
+    font-family: 'Pokemon Solid', sans-serif; 
     color: #fffb00;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 48px;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 10);
-    
-    /* Adiciona borda à fonte */
-    -webkit-text-stroke: 2px rgb(9, 98, 199); /* Para navegadores WebKit, como Chrome e Safari */
-  
-    
+    -webkit-text-stroke: 2px rgb(9, 98, 199); 
 }
+ */
 
 h2 {
     font-family: 'Pokemon Solid', sans-serif; /* Use a fonte personalizada aqui */
@@ -37,8 +34,9 @@ h2 {
     
 }
 
-.button{
+ .button{
     position:relative;
+    display: flex;
     margin:20px;
   }
   
@@ -89,7 +87,7 @@ h2 {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-  }
+  } 
 
 *
 {
