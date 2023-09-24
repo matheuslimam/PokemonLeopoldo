@@ -2,14 +2,31 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Time.css">
         <title style="text-align: center;">Time</title>
+
+        <script src="script.js" async></script>
+
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
 
     <body>
-        <h1>Monte o seu time!</h1>
+
+        <div class="container" id="content">
+            <div class="child" id="navbar">
+                <a href="home.html">
+                    <div id="back_home" class="back_home">
+                        <a href="home.html">
+                            <img class="icon" height="200%" src="icons\arrow_back.svg">
+                        </a>
+                    </div>
+                </a>
+                <h1>Monte o seu time!</h1>
+            </div>
         <fieldset>
-            <legend>Escolha até 3 pokemóns para montar o seu time:</legend>
+            <legend><h2>Escolha até 3 pokemóns para montar o seu time:</h2></legend>
             <div class="fieldset">
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon1" name="pokemon1" checked />
@@ -20,101 +37,121 @@
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon2" name="pokemon2" />
                     <label for="pokemon2">Ivysaur</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/ivysaur.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon3" name="pokemon3" />
                     <label for="pokemon3">Venusaur</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon4" name="pokemon4" />
                     <label for="pokemon4">Charmander</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon5" name="pokemon5" />
                     <label for="pokemon5">Charmeleon</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charmeleon.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon6" name="pokemon6" />
                     <label for="pokemon6">Charizard</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon7" name="pokemon7" />
                     <label for="pokemon7">Squirtle</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon8" name="pokemon8" />
                     <label for="pokemon8">Wartortle</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/wartortle.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon9" name="pokemon9" />
                     <label for="pokemon9">Blastoise</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon10" name="pokemon10" />
                     <label for="pokemon10">Pichu</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/pichu.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon11" name="pokemon11" />
                     <label for="pokemon11">Pikachu</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon12" name="pokemon12" />
                     <label for="pokemon12">Raichu</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/raichu.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon13" name="pokemon13" />
                     <label for="pokemon13">Nidoran ♂</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/nidoran-m.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon14" name="pokemon14" />
                     <label for="pokemon14">Nidorino</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/nidorino.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon15" name="pokemon15" />
                     <label for="pokemon15">Nidoking</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/nidoking.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon16" name="pokemon16" />
                     <label for="pokemon16">Gastly</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/gastly.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon17" name="pokemon17" />
                     <label for="pokemon17">Haunter</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/haunter.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon18" name="pokemon18" />
                     <label for="pokemon18">Gengar</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon19" name="pokemon19" />
                     <label for="pokemon19">Abra</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/abra.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon20" name="pokemon20" />
                     <label for="pokemon20">Kadabra</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/kadabra.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="pokemon21" name="pokemon21" />
                     <label for="pokemon21">Alakazan</label>
+                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/alakazam.gif">
                 </div>
             </div>
         </fieldset>
@@ -137,6 +174,21 @@
                     }
                 });
             });
+
+            var checkboxes2 = document.querySelectorAll('.checkbox-option input[type="checkbox"]');
+                checkboxes2.forEach(function (checkbox) {
+                checkbox.addEventListener('change', function () {
+                    var checkboxOption = this.closest('.checkbox-option');
+        
+                    if (this.checked) {
+                        checkboxOption.style.backgroundColor = '#23be00';
+                     }        
+                        else {
+                            checkboxOption.style.backgroundColor = ''; // Remove o estilo de fundo
+        }
+    });
+});
         </script>
+        </div>
     </body>
 </html>

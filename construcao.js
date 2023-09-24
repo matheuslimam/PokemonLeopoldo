@@ -1,5 +1,3 @@
-
-
 function atualizarHorario() {
     const data = new Date();
     const hora = data.getHours().toString().padStart(2, '0');
@@ -65,7 +63,7 @@ if(verificarClique() == false){
         ligarSomButton.addEventListener('click', function() {
             // Coloque aqui o código para ativar o som
             esconderPopup();
-            playSound("soundtrack/backgroundaudio.mp3");
+            playSound("soundtrack/pikachu_eating.wav");
         });
     
         naoLigarSomButton.addEventListener('click', function() {
@@ -77,7 +75,7 @@ if(verificarClique() == false){
 else{
         console.log("musicplayed")
         
-        playSound("soundtrack/backgroundaudio.mp3");
+        playSound("soundtrack/pikachu_eating.wav");
     }
 
 
@@ -127,45 +125,3 @@ function playSound(audioname){
         
     })
 } 
-
-
-    
-    var elementosOcultos = false;
-
-    window.addEventListener('keydown', function(event) {
-        // Verifica se a tecla pressionada é a tecla "H"
-        if (event.key === 'h' || event.key === 'H') {
-            // Oculta os elementos com ID "elemento1" e "elemento2"
-            var elemento1 = document.getElementById('contador');
-            var elemento2 = document.getElementById('horario');
-            var elemento3 = document.getElementById('navbar');
-            var elemento4 = document.getElementById('time');
-            var elemento5 = document.getElementById('perfil');
-            var elemento6 = document.getElementById('location');
-       
-        if (elementosOcultos) {
-            if (elemento1 && elemento2 && elemento3 && elemento4 && elemento5 && elemento6) {
-                elemento1.style.display = 'block';
-                elemento2.style.display = 'block';
-                elemento3.style.display = 'block';
-                elemento4.style.display = 'block';
-                elemento5.style.display = 'block';
-                elemento6.style.display = 'block';
-                elementosOcultos = false;
-            }
-        }
-        else{
-            if (elemento1 && elemento2 && elemento3 && elemento4 && elemento5 && elemento6) {
-                elemento1.style.display = 'none';
-                elemento2.style.display = 'none';
-                elemento3.style.display = 'none';
-                elemento4.style.display = 'none';
-                elemento5.style.display = 'none';
-                elemento6.style.display = 'none';
-                elementosOcultos = true;
-        }
-        }
-        }
-    });
-    
-

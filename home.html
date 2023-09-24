@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Página</title>
+    <title>HOME</title>
     <link rel="stylesheet" href="home.css">
 
 </head>
 <body>
 <canvas style="z-index: 0;"></canvas>
 
- <audio id="musica" loop>
-        <source src="soundtrack/Chill & Relaxing Pokémon Music Mix_YMEblRM4pGc.mp3" type="audio/mpeg">
-        Your browser does not support the audio element....
-    </audio>
+  
+  <div class="popup-container" id="popup">
+    <div class="popup-box">
+        <h2>Você deseja ligar o som?</h2>
+        <div class="popup-buttons">
+            <button class="popup-button" id="ligarSom">Sim</button>
+            <button class="popup-button" id="naoLigarSom">Não</button>
+        </div>
+    </div>
+</div>
 
     <div class="mapa">
         <!-- Seu mapa principal aqui -->
@@ -31,7 +37,7 @@
             <li><a href="config.html">
                 <img class="icon" src="imgs/configuracoes.png"></a>
             </li>
-            <li><a href="inventario.html">
+            <li><a href="construcao.html">
                 <img class="icon" src="imgs/gestao-de-inventario.png">
             </a>
         </li>
@@ -43,7 +49,7 @@
     </nav>
 
     <div id="time" class="time">
-        <a href="time.html">
+        <a href="Time.html">
             <img class="icon" src="imgs/time-azul.png">
         </a>
     </div>
@@ -57,7 +63,7 @@
         <p>Ilha do governador</p>
     </div>
 
-<script src="home.js"></script>
+<script src="home.js">a</script>
 <script src="data/collisions.js"></script>
 <script src="classes.js"></script>
 <script src="walktest.js"></script>
