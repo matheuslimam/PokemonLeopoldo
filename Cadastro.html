@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Cadastro.css">
+    <title>Cadastro de Treinador Pokémon</title>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+</head>
+<body>
+
+
+    <audio id="pokemon-audio" loop>
+        <source src="soundtrack/Chill & Relaxing Pokémon Music Mix_YMEblRM4pGc.mp3" type="audio/mpeg">
+        Your browser does not support the audio element....
+    </audio>
+
+
+    <h1>Cadastro de Treinador Pokémon</h1>
+    <form id="trainer-form" >
+        <label id='nome' for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" required>
+        <label for="pokemon">Pokémon Favorito:</label>
+        <input type="text" id="pokemon" name="pokemon" required>
+        <div id="buttonDiv"></div> 
+        <button type="submit">Cadastrar</button>
+    </form>
+    <p id="fullName"></p>
+    <div id="resultado"></div>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+    <script src="Cadastro.js">
+    </script>
+</body>
+</html>
