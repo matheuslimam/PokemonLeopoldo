@@ -1,3 +1,44 @@
+function atualizarHorario() {
+    const data = new Date();
+    const hora = data.getHours().toString().padStart(2, '0');
+    const minutos = data.getMinutes().toString().padStart(2, '0');
+    const segundos = data.getSeconds().toString().padStart(2, '0');
+    document.getElementById('horarioAtual').textContent = `${hora}:${minutos}:${segundos}`;
+}
+
+function registrarClique() {
+    // Crie um objeto de data para definir a data de expiração do cookie
+    var dataExpiracao = new Date();
+    // Defina a data de expiração para, por exemplo, um mês a partir de hoje
+    dataExpiracao.setMonth(dataExpiracao.getMonth() + 1 );
+    
+    // Crie o cookie com a informação de clique
+    document.cookie = "botaoClicado=true; expires=" + dataExpiracao.toUTCString();
+    
+  }
+  console.log(document.cookie)
+
+  function verificarClique() {
+    var cookies = document.cookie.split("; ");
+    console.log(cookies)
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].split("=");
+      if (cookie[0] === "botaoClicado" && cookie[1] === "true") {
+        // O botão foi clicado
+        return true;
+      }
+    }
+    // O botão não foi clicado
+    return false;
+  }
+  
+
+  
+  const ligarSomButton = document.getElementById('ligarSom');
+  ligarSomButton.addEventListener("click", registrarClique);
+
+setInterval(atualizarHorario, 1000); // Atualiza o horário a cada segundo
+
 // JavaScript para mostrar o popup
 if(verificarClique() == false){
     document.addEventListener('DOMContentLoaded', function() {
