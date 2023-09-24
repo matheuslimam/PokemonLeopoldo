@@ -14,11 +14,11 @@ body {
     position: relative;
     display: flex;
     border: 10px solid transparent; /* define uma borda transparente */
-    border-image: url('cinza.png') 10 stretch; /* aplica o gradiente à borda */
+    border-image: url('imgs/cinza.png') 10 stretch; /* aplica o gradiente à borda */
     box-shadow: 
         0 0 0 30px rgb(241, 17, 17), /* segunda borda vermelha de 10px */
         0 0 0 35px #343434; /* terceira borda azul de 15px */
-    background-image: url('Background3.png'); /* Substitua pelo caminho da imagem desejada */
+    background-image: url('imgs/Background3.png'); /* Substitua pelo caminho da imagem desejada */
     background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
 }
 
@@ -33,7 +33,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('Background3.png'); /* Substitua pelo caminho da imagem desejada */
+    background-image: url('imgs/Background3.png'); /* Substitua pelo caminho da imagem desejada */
     background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
     position: absolute;
     transition: transform 0.3s;
@@ -48,7 +48,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('lastpage.png'); /* Substitua pelo caminho da imagem desejada */
+    background-image: url('imgs/lastpage.png'); /* Substitua pelo caminho da imagem desejada */
     background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     position: absolute;
