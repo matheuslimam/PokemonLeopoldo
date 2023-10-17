@@ -1,6 +1,11 @@
 
 function handleCredentialResponse(response) {
           const data = jwt_decode(response.credential)
+          var fullname = data.name
+          var sub = data.sub
+          var email = data.email
+          var verifiedEmail = data.email_verified
+          
           if (response.credential) {
             // Redirecionar o usuário para a página desejada
             //window.location.href = "loading.html";
@@ -9,7 +14,10 @@ function handleCredentialResponse(response) {
             // Redirecionar o usuário para a página "loading.html" com o parâmetro de consulta
            // window.location.href = redirectUrl;
         }
-        console.log(data)
+        console.log(fullname)
+        console.log(sub)
+        console.log(email)
+        console.log(verifiedEmail)
           
           
 }
