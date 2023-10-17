@@ -76,3 +76,7 @@ header {
     display: flex;
     flex-wrap: wrap;
 }
+
+.destacado{
+    background-color: lightblue; /* Altere a cor de fundo para destacar */
+}
