@@ -1,4 +1,4 @@
-
+src="https://cdn.emailjs.com/dist/email.min.js"
 
 function sendConfirmationEmail(userEmail) {
   emailjs.init('-8koAh7ngTpQGLFhG'); // Substitua 'seu_user_id' pelo seu user_id do EmailJS
@@ -7,7 +7,7 @@ function sendConfirmationEmail(userEmail) {
     to_email: userEmail // Substitua pelo endereço de e-mail do usuário
   };
 
-  emailjs.send('default_service', 'template_1zwlm5l', templateParams) // Substitua 'seu_service_id' e 'seu_template_id'
+  emailjs.send('service_zrt24f8', 'template_1zwlm5l', templateParams) // Substitua 'seu_service_id' e 'seu_template_id'
     .then(function(response) {
       console.log('E-mail de confirmação enviado com sucesso:', response);
     }, function(error) {
