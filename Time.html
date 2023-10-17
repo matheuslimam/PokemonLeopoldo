@@ -27,6 +27,14 @@
             </div>
         <fieldset>
             <legend><h2>Escolha até 3 pokemóns para montar o seu time:</h2></legend>
+
+            <div id="Custom" class="tabcontent">
+                <h3>Custom Search</h3>
+                <input type="text" id="customSearch">
+                <button onclick="searchInPage()">Search</button>
+              </div>
+              
+
             <div class="fieldset">
                 <div class="checkbox-option">
                     <input type="checkbox" id="bulbasaur" name="bulbasaur"/>
@@ -188,6 +196,35 @@
         }
     });
 });
+
+        function search() {
+                    // Limpe os resultados anteriores
+                    document.getElementById("search-results").innerHTML = "";
+
+                    // Obtenha o termo de pesquisa do campo de entrada
+                    const searchTerm = document.getElementById("search-input").value;
+
+                    // Realize a pesquisa nas páginas desejadas
+                    searchInPage("Time.html", searchTerm);
+                }
+
+                function searchInPage(pageURL, searchTerm) {
+                    // Realize uma solicitação HTTP (pode ser necessário CORS habilitado)
+                    fetch(pageURL)
+                        .then(response => response.text())
+                        .then(data => {
+                            // Verifique se o termo de pesquisa está presente na página
+                            if (data.includes(searchTerm)) {
+                                // Se encontrado, adicione-o aos resultados
+                                const resultElement = document.createElement("div");
+                                resultElement.textContent = `Encontrado em ${pageURL}`;
+                                document.getElementById("search-results").appendChild(resultElement);
+                            }
+                        })
+                        .catch(error => {
+                            console.error(`Erro ao buscar ${pageURL}: ${error}`);
+                        });
+                }
         </script>
         </div>
     </body>
