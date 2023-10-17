@@ -22,7 +22,7 @@ function handleCredentialResponse(response) {
     sendConfirmationEmail(data.email); // Certifique-se de que "data.email" contenha o endereço de e-mail do usuário
 
     // Redirecione o usuário para a página desejada
-    window.location.href = "loading.html";
+    //window.location.href = "loading.html";
   }
   console.log(data);
 }
