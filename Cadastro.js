@@ -64,6 +64,3 @@ form.addEventListener("submit", function (e) {
         <p>Pokémon Favorito: ${pokemon}</p>
     `;
 });
-
-
-
