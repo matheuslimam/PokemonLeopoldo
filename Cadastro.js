@@ -1,4 +1,4 @@
-
+src="https://cdn.emailjs.com/dist/email.min.js"
 
 function sendConfirmationEmail(userEmail) {
   emailjs.init('-8koAh7ngTpQGLFhG'); // Substitua 'seu_user_id' pelo seu user_id do EmailJS
