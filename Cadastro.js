@@ -2,19 +2,16 @@
 function handleCredentialResponse(response) {
           const data = jwt_decode(response.credential)
           var fullname = data.name
-          var sub = data.sub
+          var id = data.sub
           var email = data.email
           var verifiedEmail = data.email_verified
           
-          if (response.credential) {
-            // Redirecionar o usuário para a página desejada
-            //window.location.href = "loading.html";
-            //const redirectUrl = `Perfil.html?pic=${encodeURIComponent(data.picture)}`;
+          //verifica se teve resposta e se o email eh verificado
+          if (response.credential && verifiedEmail) {
 
-            // Redirecionar o usuário para a página "loading.html" com o parâmetro de consulta
-           // window.location.href = redirectUrl;
+            // Redirecionar o usuário para a página de loading
+            window.location.href = "loading.html";
         }
-        //que inferno
 
         console.log(fullname)
         console.log(sub)
