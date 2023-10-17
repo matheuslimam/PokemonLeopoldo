@@ -8,7 +8,7 @@ function handleCredentialResponse(response) {
           const data = jwt_decode(response.credential)
           if (response.credential) {
             // Redirecionar o usuário para a página desejada
-            window.location.href = "loading.html";
+            //window.location.href = "loading.html";
             //const redirectUrl = `Perfil.html?pic=${encodeURIComponent(data.picture)}`;
 
             // Redirecionar o usuário para a página "loading.html" com o parâmetro de consulta
