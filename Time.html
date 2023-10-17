@@ -31,7 +31,7 @@
             <div id="Custom" class="tabcontent">
                 <h3>Custom Search</h3>
                 <input type="text" id="customSearch">
-                <button onclick="searchInPage()">Search</button>
+                <button onclick="searchElement()">Search</button>
               </div>
               
 
@@ -79,79 +79,79 @@
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon8" name="pokemon8" />
+                    <input type="checkbox" id="wartortle" name="wartortle" />
                     <label for="pokemon8">Wartortle</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/wartortle.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon9" name="pokemon9" />
+                    <input type="checkbox" id="blastoise" name="blastoise" />
                     <label for="pokemon9">Blastoise</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon10" name="pokemon10" />
+                    <input type="checkbox" id="pichu" name="pichu" />
                     <label for="pokemon10">Pichu</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/pichu.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon11" name="pokemon11" />
+                    <input type="checkbox" id="pikachu" name="pikachu" />
                     <label for="pokemon11">Pikachu</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon12" name="pokemon12" />
+                    <input type="checkbox" id="raichu" name="raichu" />
                     <label for="pokemon12">Raichu</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/raichu.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon13" name="pokemon13" />
+                    <input type="checkbox" id="nidoran" name="nidoran" />
                     <label for="pokemon13">Nidoran ♂</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/nidoran-m.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon14" name="pokemon14" />
+                    <input type="checkbox" id="nidorino" name="nidorino" />
                     <label for="pokemon14">Nidorino</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/nidorino.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon15" name="pokemon15" />
+                    <input type="checkbox" id="nidoking" name="nidoking" />
                     <label for="pokemon15">Nidoking</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/nidoking.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon16" name="pokemon16" />
+                    <input type="checkbox" id="gastly" name="gastly" />
                     <label for="pokemon16">Gastly</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/gastly.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon17" name="pokemon17" />
+                    <input type="checkbox" id="haunter" name="haunter" />
                     <label for="pokemon17">Haunter</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/haunter.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon18" name="pokemon18" />
+                    <input type="checkbox" id="gengar" name="gengar" />
                     <label for="pokemon18">Gengar</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon19" name="pokemon19" />
+                    <input type="checkbox" id="abra" name="abra" />
                     <label for="pokemon19">Abra</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/abra.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon20" name="pokemon20" />
+                    <input type="checkbox" id="kadabra" name="kadabra" />
                     <label for="pokemon20">Kadabra</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/kadabra.gif">
                 </div>
@@ -197,29 +197,19 @@
     });
 });
 
-            function searchInPage(pageURL, searchTerm) {
-                // Realize uma solicitação HTTP (pode ser necessário CORS habilitado)
-                fetch(pageURL)
-                    .then(response => response.text())
-                    .then(data => {
-                        // Verifique se o termo de pesquisa está presente na página
-                        if (data.includes(searchTerm)) {
-                            // Se encontrado, adicione-o aos resultados
-                            const resultElement = document.createElement("div");
-                            resultElement.textContent = `Encontrado em ${pageURL}`;
-                            document.getElementById("search-results").appendChild(resultElement);
+            function searchElement() {
+            var searchTerm = document.getElementById('customSearch').value;
+            var element = document.getElementById(searchTerm);
 
-                            // Redirecione para o elemento com o id correspondente ao termo de pesquisa
-                            const element = document.getElementById(searchTerm); // assumindo que o id do elemento é o mesmo que o termo de pesquisa
-                            if (element) {
-                                element.scrollIntoView({ behavior: "smooth" });
-                            }
-                        }
-                    })
-                    .catch(error => {
-                        console.error(`Erro ao buscar ${pageURL}: ${error}`);
-                    });
+            if (element) {
+                var elementRect = element.getBoundingClientRect();
+                var absoluteElementTop = elementRect.top + window.pageYOffset;
+                var middle = absoluteElementTop - (window.innerHeight / 2);
+                window.scrollTo(0, middle);
+            } else {
+                alert('Elemento não encontrado!');
             }
+        }
         </script>
         </div>
     </body>
