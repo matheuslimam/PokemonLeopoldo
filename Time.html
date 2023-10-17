@@ -28,137 +28,175 @@
         <fieldset>
             <legend><h2>Escolha até 3 pokemóns para montar o seu time:</h2></legend>
 
-            <div id="Custom" class="tabcontent">
-                <h3>Custom Search</h3>
-                <input type="text" id="customSearch">
-                <button onclick="searchInPage()">Search</button>
-              </div>
-              
+
+<!------------------------------------------------------------------------------------------------------------------->
+
+<div id="Custom" class="tabcontent">
+<div class="searchBox">
+
+    <input class="searchInput" type="text" name="" placeholder="Busque seu Pokemon!" id="customSearch"> 
+    <button class="searchButton" href="#" onclick="searchPokemon()">
+           
+          
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+<g clip-path="url(#clip0_2_17)">
+<g filter="url(#filter0_d_2_17)">
+<path d="M23.7953 23.9182L19.0585 19.1814M19.0585 19.1814C19.8188 18.4211 20.4219 17.5185 20.8333 16.5251C21.2448 15.5318 21.4566 14.4671 21.4566 13.3919C21.4566 12.3167 21.2448 11.252 20.8333 10.2587C20.4219 9.2653 19.8188 8.36271 19.0585 7.60242C18.2982 6.84214 17.3956 6.23905 16.4022 5.82759C15.4089 5.41612 14.3442 5.20435 13.269 5.20435C12.1938 5.20435 11.1291 5.41612 10.1358 5.82759C9.1424 6.23905 8.23981 6.84214 7.47953 7.60242C5.94407 9.13789 5.08145 11.2204 5.08145 13.3919C5.08145 15.5634 5.94407 17.6459 7.47953 19.1814C9.01499 20.7168 11.0975 21.5794 13.269 21.5794C15.4405 21.5794 17.523 20.7168 19.0585 19.1814Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" shape-rendering="crispEdges"></path>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_2_17" x="-0.418549" y="3.70435" width="29.7139" height="29.7139" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+<feOffset dy="4"></feOffset>
+<feGaussianBlur stdDeviation="2"></feGaussianBlur>
+<feComposite in2="hardAlpha" operator="out"></feComposite>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_17"></feBlend>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_17" result="shape"></feBlend>
+</filter>
+<clipPath id="clip0_2_17">
+<rect width="28.0702" height="28.0702" fill="white" transform="translate(0.403503 0.526367)"></rect>
+</clipPath>
+</defs>
+</svg>
+             
+
+    </button>
+</div>
+</div>
+<br>
+<br>
+
+
+
+<!------------------------------------------------------------------------------------------------------------------->
 
             <div class="fieldset">
                 <div class="checkbox-option">
                     <input type="checkbox" id="bulbasaur" name="bulbasaur"/>
-                    <label for="pokemon1">Bulbasaur</label>
+                    <label for="bulbasaur">Bulbasaur</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif">
                 </div>
                 
                 <div class="checkbox-option">
                     <input type="checkbox" id="ivysaur" name="ivysaur" />
-                    <label for="pokemon2">Ivysaur</label>
+                    <label for="ivysaur">Ivysaur</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/ivysaur.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="venusaur" name="venusaur" />
-                    <label for="pokemon3">Venusaur</label>
+                    <label for="venusaur">Venusaur</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="charmander" name="charmander" />
-                    <label for="pokemon4">Charmander</label>
+                    <label for="charmander">Charmander</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="charmeleon" name="charmeleon" />
-                    <label for="pokemon5">Charmeleon</label>
+                    <label for="charmeleon">Charmeleon</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charmeleon.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="charizard" name="charizard" />
-                    <label for="pokemon6">Charizard</label>
+                    <label for="charizard">Charizard</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif">
                 </div>
 
                 <div class="checkbox-option">
                     <input type="checkbox" id="squirtle" name="squirtle" />
-                    <label for="pokemon7">Squirtle</label>
+                    <label for="squirtle">Squirtle</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon8" name="pokemon8" />
-                    <label for="pokemon8">Wartortle</label>
+                    <input type="checkbox" id="wartortle" name="wartortle" />
+                    <label for="wartortle">Wartortle</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/wartortle.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon9" name="pokemon9" />
-                    <label for="pokemon9">Blastoise</label>
+                    <input type="checkbox" id="blastoise" name="blastoise" />
+                    <label for="blastoise">Blastoise</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/blastoise.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon10" name="pokemon10" />
-                    <label for="pokemon10">Pichu</label>
+                    <input type="checkbox" id="pichu" name="pichu" />
+                    <label for="pichu">Pichu</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/pichu.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon11" name="pokemon11" />
-                    <label for="pokemon11">Pikachu</label>
+                    <input type="checkbox" id="pikachu" name="pikachu" />
+                    <label for="pikachu">Pikachu</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon12" name="pokemon12" />
-                    <label for="pokemon12">Raichu</label>
+                    <input type="checkbox" id="raichu" name="raichu" />
+                    <label for="raichu">Raichu</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/raichu.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon13" name="pokemon13" />
-                    <label for="pokemon13">Nidoran ♂</label>
+                    <input type="checkbox" id="nidoran" name="nidoran" />
+                    <label for="nidoran">Nidoran ♂</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/nidoran-m.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon14" name="pokemon14" />
-                    <label for="pokemon14">Nidorino</label>
+                    <input type="checkbox" id="nidorino" name="nidorino" />
+                    <label for="nidorino">Nidorino</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/nidorino.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon15" name="pokemon15" />
-                    <label for="pokemon15">Nidoking</label>
+                    <input type="checkbox" id="nidoking" name="nidoking" />
+                    <label for="nidoking">Nidoking</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/nidoking.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon16" name="pokemon16" />
-                    <label for="pokemon16">Gastly</label>
+                    <input type="checkbox" id="gastly" name="gastly" />
+                    <label for="gastly">Gastly</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/gastly.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon17" name="pokemon17" />
-                    <label for="pokemon17">Haunter</label>
+                    <input type="checkbox" id="haunter" name="haunter" />
+                    <label for="haunter">Haunter</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/haunter.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon18" name="pokemon18" />
-                    <label for="pokemon18">Gengar</label>
+                    <input type="checkbox" id="gengar" name="gengar" />
+                    <label for="gengar">Gengar</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/gengar.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon19" name="pokemon19" />
-                    <label for="pokemon19">Abra</label>
+                    <input type="checkbox" id="abra" name="abra" />
+                    <label for="abra">Abra</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/abra.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon20" name="pokemon20" />
-                    <label for="pokemon20">Kadabra</label>
+                    <input type="checkbox" id="kadabra" name="kadabra" />
+                    <label for="kadabra">Kadabra</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/kadabra.gif">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="pokemon21" name="pokemon21" />
-                    <label for="pokemon21">Alakazan</label>
+                    <input type="checkbox" id="alakazan" name="alakazan" />
+                    <label for="alakazan">Alakazan</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/alakazam.gif">
                 </div>
             </div>
@@ -197,34 +235,23 @@
     });
 });
 
-        function search() {
-                    // Limpe os resultados anteriores
-                    document.getElementById("search-results").innerHTML = "";
+            function searchPokemon() {
+                var searchTerm = document.getElementById('customSearch').value;
+            // é aqui q a magiazinha vai acontecer
+                var element = document.getElementById(searchTerm);
 
-                    // Obtenha o termo de pesquisa do campo de entrada
-                    const searchTerm = document.getElementById("search-input").value;
+                if (element) {
+                    // Adicione uma classe de destaque ao elemento
+                    element.classList.add('destacado');
+                    var elementRect = element.getBoundingClientRect();
+                    var absoluteElementTop = elementRect.top + window.pageYOffset;
+                    var middle = absoluteElementTop - (window.innerHeight / 2);
+                    window.scrollTo(0, middle);
 
-                    // Realize a pesquisa nas páginas desejadas
-                    searchInPage("Time.html", searchTerm);
+                } else {
+                    alert('Pokemón não encontrado!');
                 }
-
-                function searchInPage(pageURL, searchTerm) {
-                    // Realize uma solicitação HTTP (pode ser necessário CORS habilitado)
-                    fetch(pageURL)
-                        .then(response => response.text())
-                        .then(data => {
-                            // Verifique se o termo de pesquisa está presente na página
-                            if (data.includes(searchTerm)) {
-                                // Se encontrado, adicione-o aos resultados
-                                const resultElement = document.createElement("div");
-                                resultElement.textContent = `Encontrado em ${pageURL}`;
-                                document.getElementById("search-results").appendChild(resultElement);
-                            }
-                        })
-                        .catch(error => {
-                            console.error(`Erro ao buscar ${pageURL}: ${error}`);
-                        });
-                }
+            }
         </script>
         </div>
     </body>
