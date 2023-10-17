@@ -15,10 +15,12 @@ function handleCredentialResponse(response) {
            // window.location.href = redirectUrl;
         }
         //que inferno
+
         console.log(fullname)
         console.log(sub)
         console.log(email)
         console.log(verifiedEmail)
+        console.log(data)
           
           
 }
