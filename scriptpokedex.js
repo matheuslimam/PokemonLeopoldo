@@ -50,21 +50,3 @@ function search() {
     searchInPage("PokedexPt3.html", searchTerm);
     searchInPage("PokedexPt4.html", searchTerm);
 }
-
-function searchInPage(pageURL, searchTerm) {
-    // Realize uma solicitação HTTP (pode ser necessário CORS habilitado)
-    fetch(pageURL)
-        .then(response => response.text())
-        .then(data => {
-            // Verifique se o termo de pesquisa está presente na página
-            if (data.includes(searchTerm)) {
-                // Se encontrado, adicione-o aos resultados
-                const resultElement = document.createElement("div");
-                resultElement.textContent = `Encontrado em ${pageURL}`;
-                document.getElementById("search-results").appendChild(resultElement);
-            }
-        })
-        .catch(error => {
-            console.error(`Erro ao buscar ${pageURL}: ${error}`);
-        });
-}
