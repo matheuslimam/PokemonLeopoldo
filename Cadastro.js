@@ -14,6 +14,7 @@ function handleCredentialResponse(response) {
             // Redirecionar o usuário para a página "loading.html" com o parâmetro de consulta
            // window.location.href = redirectUrl;
         }
+        //que inferno
         console.log(fullname)
         console.log(sub)
         console.log(email)
