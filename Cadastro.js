@@ -1,9 +1,4 @@
 
-
-
-
-
-
 function handleCredentialResponse(response) {
           const data = jwt_decode(response.credential)
           if (response.credential) {
