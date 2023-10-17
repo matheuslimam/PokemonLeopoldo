@@ -197,34 +197,29 @@
     });
 });
 
-        function search() {
-                    // Limpe os resultados anteriores
-                    document.getElementById("search-results").innerHTML = "";
+            function searchInPage(pageURL, searchTerm) {
+                // Realize uma solicitação HTTP (pode ser necessário CORS habilitado)
+                fetch(pageURL)
+                    .then(response => response.text())
+                    .then(data => {
+                        // Verifique se o termo de pesquisa está presente na página
+                        if (data.includes(searchTerm)) {
+                            // Se encontrado, adicione-o aos resultados
+                            const resultElement = document.createElement("div");
+                            resultElement.textContent = `Encontrado em ${pageURL}`;
+                            document.getElementById("search-results").appendChild(resultElement);
 
-                    // Obtenha o termo de pesquisa do campo de entrada
-                    const searchTerm = document.getElementById("search-input").value;
-
-                    // Realize a pesquisa nas páginas desejadas
-                    searchInPage("Time.html", searchTerm);
-                }
-
-                function searchInPage(pageURL, searchTerm) {
-                    // Realize uma solicitação HTTP (pode ser necessário CORS habilitado)
-                    fetch(pageURL)
-                        .then(response => response.text())
-                        .then(data => {
-                            // Verifique se o termo de pesquisa está presente na página
-                            if (data.includes(searchTerm)) {
-                                // Se encontrado, adicione-o aos resultados
-                                const resultElement = document.createElement("div");
-                                resultElement.textContent = `Encontrado em ${pageURL}`;
-                                document.getElementById("search-results").appendChild(resultElement);
+                            // Redirecione para o elemento com o id correspondente ao termo de pesquisa
+                            const element = document.getElementById(searchTerm); // assumindo que o id do elemento é o mesmo que o termo de pesquisa
+                            if (element) {
+                                element.scrollIntoView({ behavior: "smooth" });
                             }
-                        })
-                        .catch(error => {
-                            console.error(`Erro ao buscar ${pageURL}: ${error}`);
-                        });
-                }
+                        }
+                    })
+                    .catch(error => {
+                        console.error(`Erro ao buscar ${pageURL}: ${error}`);
+                    });
+            }
         </script>
         </div>
     </body>
