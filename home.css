@@ -124,7 +124,7 @@ body {
 
 .location{
     position: fixed;
-    top: -25px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #58554475;
@@ -177,4 +177,16 @@ body {
 
 .popup-button:hover {
     background-color: #da942c;
+}
+
+#google_translate_element {
+    display:flex;
+}
+.goog-te-banner-frame {
+    display: none ;
+    bottom: 50%;
+}
+body {
+    position: static !important;
+    top: 100 !important;
 }

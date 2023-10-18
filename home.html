@@ -10,7 +10,7 @@
 <body>
 <canvas style="z-index: 0;"></canvas>
 
-  
+
   <div class="popup-container" id="popup">
     <div class="popup-box">
         <h2>Você deseja ligar o som?</h2>
@@ -25,6 +25,7 @@
         <!-- Seu mapa principal aqui -->
     </div>
     <div id="contador" class="contador">
+        
         <img src="imgs/moeda.png" alt="Moeda">
         <span id="contadorMoedas" class="contadorMoedas">0</span>
     </div>
@@ -49,6 +50,7 @@
     </nav>
 
     <div id="time" class="time">
+        <div style="z-index: 5;" id="google_translate_element"></div>
         <a href="Time.html">
             <img class="icon" src="imgs/time-azul.png">
         </a>
@@ -62,7 +64,7 @@
     <div id="location" class="location">
         <p>Ilha do governador</p>
     </div>
-
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="home.js">a</script>
 <script src="data/collisions.js"></script>
 <script src="classes.js"></script>
