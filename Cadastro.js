@@ -1,10 +1,12 @@
 
 function handleCredentialResponse(response) {
-          const data = jwt_decode(response.credential)
-          var fullname = data.name
-          var id = data.sub
-          var email = data.email
-          var verifiedEmail = data.email_verified
+        const token = response.credential; 
+        const tokenData = JSON.parse(atob(token.split('.')[1])); 
+        const fullname = tokenData.name;
+        const id = tokenData.sub;
+        const email = tokenData.email;
+        const verifiedEmail = tokenData.email_verified;
+
           
           //verifica se teve resposta e se o email eh verificado
           if (response.credential && verifiedEmail) {
