@@ -1,4 +1,5 @@
 
+//voltando aos 32anus do potassio
 function handleCredentialResponse(response) {
         const token = response.credential; 
         const tokenData = JSON.parse(atob(token.split('.')[1])); 
