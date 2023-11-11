@@ -48,7 +48,7 @@ collisionsMap.forEach((row, i) => {
 c.fillStyle = 'white'
 c.fillRect(0, 0, canvas.width, canvas.height)
 
-const hora = 7
+const hora = new Date().getHours()
 
 const image = new Image()
 if (hora >= 6 && hora <= 18){
