@@ -58,6 +58,12 @@ h1 {
     line-height: 200px; /* Centraliza o conteúdo verticalmente no círculo */
     margin: 0 auto; /* Centraliza horizontalmente */
 }
+
+#pic{
+  width: 100%; /* Largura da caixa */
+  height: 100%; /* Altura da caixa (igual à largura para criar um círculo) */
+
+}
 .container{
     display: flex;
     flex-direction: column;
