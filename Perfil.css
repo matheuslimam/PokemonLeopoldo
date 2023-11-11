@@ -49,6 +49,7 @@ h1 {
 }
 
 .photo {
+    z-index: 99;
     width: 200px; /* Largura da caixa */
     height: 200px; /* Altura da caixa (igual à largura para criar um círculo) */
     background-color: #f0f0f0; /* Cor de fundo da caixa */
