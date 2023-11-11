@@ -7,7 +7,7 @@
     --charizardfront: url(https://assets.codepen.io/13471/charizard-gx.webp);
     --charm1: #54a29e;
     --charm2: #a79d66;
-    --charmfront: url(imgs/charmanderchose.png);
+    --charmfront: url(https://assets.codepen.io/13471/pikachu-gx.webp);
     --eevee1: #efb2fb;
     --eevee2: #acc6f8;
     --eeveefront: url(imgs/bubassaurchose.png);
@@ -19,7 +19,7 @@
   
   
   .card {
-  
+
     width: 71.5vw;
     height: 100vw;
     width: clamp(200px, 61vh, 18vw);

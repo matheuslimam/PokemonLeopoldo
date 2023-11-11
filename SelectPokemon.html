@@ -1,46 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>chose</title>
     <link rel="stylesheet" href="SelectPokemon.css">
-    <title>selecione seu pokemon</title>
 </head>
 <body>
-    <!-- <h1>Selecione seu Pokémon Starter</h1> -->
 
-    <div class="container">
-        <div class="card" style="--clr: #ff4d4d;">
-            <div class="content"></div>
-            <div class="imgBx"></div>
-            <div class="texBx">
-                <h2>Charmander</h2>
-            </div>
-        </div>
-        <div class="card" style="--clr: #5fa7ff;">
-            <div class="content"></div>
-            <div class="imgBx"></div>
-            <div class="texBx">
-                <h2>Squirtle</h2>
-            </div>
-        </div>
-        <div class="card" style="--clr: #3ae374;">
-            <div class="content"></div>
-            <div class="imgBx"></div>
-            <div class="texBx">
-                <h2>Bulbasaur</h2>
-            </div>
-        </div>
-    </div>
 
-     <div class="Pikachu">
+       <main id=app>
+    
+        
+        <h1>Escolha seu pokemon inicial</h1>
+        
+        <section class="cards">
+          <div id="charm" class="card pika animated"></div>
+          <div id="buba" class="card eevee animated"></div>
+          <div id="squirt" class="card mewtwo animated"></div>
+        </section>
+        
+        <style class="hover"></style>
+        
+ 
+      
+        
+      </main>
+      
+      <div class="Pikachu">
         <div ontouchstart="">
             <div class="button">
-              <a href="#">Start</a>
+              <a id="Btpikachu" href="#">Start</a>
             </div>
           </div>
-    </div> 
-
+    
+    
 </body>
+<script>
+    const userId = localStorage.getItem('user_id');
+
+    squirt.addEventListener('click', function() {
+        setCookie('user-pokemon', `${userId}/squirtle`, 365);
+        localStorage.setItem('user_pokemon', "squirtle");
+        window.location.href = "choseCaracter.html";
+        });
+
+    buba.addEventListener('click', function() {
+        setCookie('user-pokemon', `${userId}/bubassour`, 365);
+        localStorage.setItem('user_pokemon', "bubassour");
+        window.location.href = "choseCaracter.html";
+        });
+
+    charm.addEventListener('click', function() {
+        setCookie('user-pokemon', `${userId}/charmander`, 365);
+        localStorage.setItem('user_pokemon', "charmander");
+        window.location.href = "choseCaracter.html";
+        });
+
+    Btpikachu.addEventListener('click', function() {
+        setCookie('user-pokemon', `${userId}/pikachu`, 365);
+        localStorage.setItem('user_pokemon', "Pikachu");
+        window.location.href = "showPikachu.html";
+        });
+    
+    function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookiePokemon(name, userid) {
+    
+    const userId = localStorage.getItem('user_id');
+
+            if (userid == userId){
+            const cname = name + "=" + userid + "/";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cname) === 0) {
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+            }
+        }      
+
+</script>
 </html>
