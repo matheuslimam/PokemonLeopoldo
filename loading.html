@@ -1,111 +1,102 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>loading</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-
-    p{
-    text-align: center;
-    font-size: 20px;
-        font-family: 'Pokemon Solid', sans-serif; /* Use a fonte personalizada aqui */
-        color: #fffb00;
-            /* Adiciona borda à fonte */
-            -webkit-text-stroke: 0.2px rgb(9, 98, 199); /* Para navegadores WebKit, como Chrome e Safari */
+<head>
+    <title>loading</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        p {
+            text-align: center;
+            font-size: 20px;
+            font-family: 'Pokemon Solid', sans-serif;
+            color: #fffb00;
+            -webkit-text-stroke: 0.2px rgb(9, 98, 199);
             text-shadow: 2px 2px 7px rgba(0, 0, 0, 10);
-    }
+        }
 
-    body::before {
-        content: '';
-        background-image: url('imgs/correndin.gif'); /* Adicione uma imagem de fundo Pokémon */
-        background-size: cover;
-        background-position: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.6;
-        z-index: -1;
-    }
+        body::before {
+            content: '';
+            background-image: url('imgs/correndin.gif');
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+            z-index: -1;
+        }
 
-    .loader {
-    border: 16px solid #f3f3f3;
-    margin-top: 250px;
-    margin-left: 550px;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
-    }
-    @font-face {
-        font-family: 'Pokemon Solid'; /* O nome que você deseja dar à fonte */
-        src: url('assets/Pokemon Solid.ttf') format('truetype'); /* Caminho para o arquivo de fonte */
-        /* Outras variações de formato de fonte (woff, woff2) podem ser adicionadas para compatibilidade com navegadores diferentes */
-    }
-    /* Safari */
-    @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-    }
+        .loader {
+            border: 16px solid #f3f3f3;
+            margin-top: 250px;
+            margin-left: 550px;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
 
-    @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-    }
+        @font-face {
+            font-family: 'Pokemon Solid';
+            src: url('assets/Pokemon Solid.ttf') format('truetype');
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
-    </head>
-    <body>
-   
+</head>
+<body>
+    <div class="loader"></div>
+    <p>Seu mestre pokemon será criado em <span id="contador">10</span> segundos.</p>
 
-
-        <div class="loader"></div>
-        <p>Seu mestre pokemon será criado em <span id="contador">10</span>
-            segundos.</p>
-    </body>
     <script>
+        function hasUserEntered(userId) {
+            return getCookie(`hasEnter_${userId}`);
+        }
+
         const userId = localStorage.getItem('user_id');
         const userName = localStorage.getItem('user_name');
 
-    const hasEnter = getCookie("hasEnter");
-     if(userId && userName && !hasEnter){
-        window.location.href = "SelectPokemon.html";
-        setCookie("hasEnter", "true", 365);
-    }
-    else{
-        // Função para atualizar o contador e redirecionar após o tempo especificado
-    function redirecionar() {
-        var contadorElement = document.getElementById("contador");
-        var segundos = parseInt(contadorElement.textContent);
-
-        if (segundos > 0) {
-            segundos--;
-            contadorElement.textContent = segundos;
-            setTimeout(redirecionar, 1000); // Chama a função novamente após 1 segundo (1000 milissegundos)
+        if (userId && userName && !hasUserEntered(userId)) {
+            window.location.href = "SelectPokemon.html";
+            setCookie(`hasEnter_${userId}`, "true", 365);
         } else {
-            // Redireciona para a próxima página após a contagem regressiva
-            window.location.href = "home.html";
+            function redirecionar() {
+                var contadorElement = document.getElementById("contador");
+                var segundos = parseInt(contadorElement.textContent);
+
+                if (segundos > 0) {
+                    segundos--;
+                    contadorElement.textContent = segundos;
+                    setTimeout(redirecionar, 1000);
+                } else {
+                    window.location.href = "home.html";
+                }
+            }
+
+            window.onload = function () {
+                setTimeout(redirecionar, 1000);
+            }
         }
-    }
 
-    // Iniciar a contagem regressiva quando a página é carregada
-    window.onload = function () {
-        setTimeout(redirecionar, 1000); // Inicia a contagem regressiva após 1 segundo (1000 milissegundos) da página ser carregada
-    }
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
 
-    }
-
-
-function setCookie(name, value, days) {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-
-function getCookie(name) {
+        function getCookie(name) {
             const cname = name + "=";
             const decodedCookie = decodeURIComponent(document.cookie);
             const ca = decodedCookie.split(';');
@@ -119,8 +110,7 @@ function getCookie(name) {
                 }
             }
             return "";
-        }      
-
-
-</script>
+        }
+    </script>
+</body>
 </html>
