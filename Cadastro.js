@@ -7,10 +7,16 @@ function handleCredentialResponse(response) {
         const id = tokenData.sub;
         const email = tokenData.email;
         const verifiedEmail = tokenData.email_verified;
+        const profilePicture = tokenData.picture;
 
+      
           
           //verifica se teve resposta e se o email eh verificado
           if (response.credential && verifiedEmail) {
+
+            localStorage.setItem('user_id', id);
+            localStorage.setItem('user_name', fullname);
+            localStorage.setItem('user_pic', profilePicture);
 
             // Redirecionar o usuário para a página de loading
             window.location.href = "loading.html";
