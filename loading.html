@@ -66,7 +66,14 @@
             segundos.</p>
     </body>
     <script>
-    // Função para atualizar o contador e redirecionar após o tempo especificado
+
+    const hasEnter = getCookie("hasEnter");
+     if(!hasEnter){
+        window.location.href = "SelectPokemon.html";
+        setCookie("ja_entrou", "true", 365);
+    }
+    else{
+        // Função para atualizar o contador e redirecionar após o tempo especificado
     function redirecionar() {
         var contadorElement = document.getElementById("contador");
         var segundos = parseInt(contadorElement.textContent);
@@ -85,5 +92,33 @@
     window.onload = function () {
         setTimeout(redirecionar, 1000); // Inicia a contagem regressiva após 1 segundo (1000 milissegundos) da página ser carregada
     }
+
+    }
+
+
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+            const cname = name + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cname) === 0) {
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+        }      
+
+
 </script>
 </html>

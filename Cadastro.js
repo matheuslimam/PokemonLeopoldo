@@ -1,5 +1,4 @@
 
-//voltando aos 32anus do potassio
 function handleCredentialResponse(response) {
         const token = response.credential; 
         const tokenData = JSON.parse(atob(token.split('.')[1])); 
@@ -13,9 +12,10 @@ function handleCredentialResponse(response) {
           
           //verifica se teve resposta e se o email eh verificado
           if (response.credential && verifiedEmail) {
-
+            
             localStorage.setItem('user_id', id);
             localStorage.setItem('user_name', fullname);
+            localStorage.setItem('user_email', email)
             localStorage.setItem('user_pic', profilePicture);
 
             // Redirecionar o usuário para a página de loading
@@ -43,31 +43,3 @@ window.onload = function () {
 }
 
 
-
-
-// Seleciona o formulário e o elemento de resultado
-const form = document.getElementById("trainer-form");
-const resultado = document.getElementById("resultado");
-
-// Reproduza a música automaticamente após o carregamento da página
-window.addEventListener('load', function() {
-    const audio = document.getElementById('pokemon-audio');
-    audio.play();
-        });
-
-// Adiciona um ouvinte de evento para o formulário
-form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Impede o envio do formulário padrão
-
-    // Pega os valores dos campos de entrada
-    const nome = document.getElementById("nome").value;
-    const idade = document.getElementById("idade").value;
-    const pokemon = document.getElementById("pokemon").value;
-
-    // Exibe o resultado na div de resultado
-    resultado.innerHTML = `
-        <p>Nome: ${nome}</p> 
-        <p>Idade: ${idade}</p>
-        <p>Pokémon Favorito: ${pokemon}</p>
-    `;
-});
