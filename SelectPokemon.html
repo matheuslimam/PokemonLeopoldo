@@ -40,25 +40,25 @@
     const userId = localStorage.getItem('user_id');
 
     squirt.addEventListener('click', function() {
-        setCookie('user-pokemon', `${userId}/squirtle`, 365);
+        setCookie(`userPokemon_${userId}`, "squirtle", 365);
         localStorage.setItem('user_pokemon', "squirtle");
         window.location.href = "choseCaracter.html";
         });
 
     buba.addEventListener('click', function() {
-        setCookie('user-pokemon', `${userId}/bubassour`, 365);
+        setCookie(`userPokemon_${userId}`, "bubassour", 365);
         localStorage.setItem('user_pokemon', "bubassour");
         window.location.href = "choseCaracter.html";
         });
 
     charm.addEventListener('click', function() {
-        setCookie('user-pokemon', `${userId}/charmander`, 365);
+        setCookie(`userPokemon_${userId}`, "charmander", 365);
         localStorage.setItem('user_pokemon', "charmander");
         window.location.href = "choseCaracter.html";
         });
 
     Btpikachu.addEventListener('click', function() {
-        setCookie('user-pokemon', `${userId}/pikachu`, 365);
+        setCookie(`userPokemon_${userId}`, "Pikachu", 365);
         localStorage.setItem('user_pokemon', "Pikachu");
         window.location.href = "showPikachu.html";
         });
