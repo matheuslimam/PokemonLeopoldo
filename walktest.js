@@ -30,6 +30,7 @@ const offset = {
   y: -600
 }
 
+
 collisionsMap.forEach((row, i) => {
     row.forEach((symbol, j) => {
         if(symbol === 1025)
@@ -47,8 +48,16 @@ collisionsMap.forEach((row, i) => {
 c.fillStyle = 'white'
 c.fillRect(0, 0, canvas.width, canvas.height)
 
+const hora = 7
+
 const image = new Image()
-image.src = 'imgs/Pellet Town.png'
+if (hora >= 6 && hora <= 18){
+    image.src = 'imgs/Pellet Town.png'
+} else {
+    image.src = 'imgs/Pellet Town Night.png'
+    
+}
+
 
 const playerDownImage = new Image()
 playerDownImage.src = 'imgs/cesinhafrente.png'
