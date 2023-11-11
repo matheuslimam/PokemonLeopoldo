@@ -66,9 +66,11 @@
             segundos.</p>
     </body>
     <script>
+        const userId = localStorage.getItem('user_id');
+        const userName = localStorage.getItem('user_name');
 
     const hasEnter = getCookie("hasEnter");
-     if(!hasEnter){
+     if(userId && userName && !hasEnter){
         window.location.href = "SelectPokemon.html";
         setCookie("hasEnter", "true", 365);
     }
