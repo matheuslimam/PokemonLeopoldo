@@ -52,7 +52,7 @@ h1 {
     z-index: 99;
     width: 200px; /* Largura da caixa */
     height: 200px; /* Altura da caixa (igual à largura para criar um círculo) */
-    background-color: #f0f0f0; /* Cor de fundo da caixa */
+    background-color: #f0f0f000; /* Cor de fundo da caixa */
     border-radius: 50%; /* Torna a caixa um círculo */
     border: 3px solid #000; /* Borda da caixa */
     text-align: center;
