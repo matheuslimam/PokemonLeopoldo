@@ -13,6 +13,7 @@ fullname.textContent = userName;
 userPokemon.textContent = hasUserEntered(userId);
 pic.setAttribute("src", profilePicture);
 
+//pegando os cookies
 function getCookie(name) {
     const cname = name + "=";
     const decodedCookie = decodeURIComponent(document.cookie);

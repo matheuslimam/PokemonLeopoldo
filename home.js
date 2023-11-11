@@ -87,9 +87,6 @@ else{
         
         playSound("soundtrack/backgroundaudio.mp3");
     }
-
-
-
       
       // Chame a função para simular a interação do usuário antes da reprodução de mídia
 
