@@ -4,14 +4,15 @@ const userName = localStorage.getItem('user_name');
 const profilePicture = localStorage.getItem('user_pic');
 const userPokemon = localStorage.getItem('user_pokemon');
 
-function hashasUserEntered(userId){
+//função de chamada
+function hasUserEntered(userId){
     return getCookie(`userPokemon_${userId}`);
 }
 
 //muda o atributos da pagina
 fullname.textContent = userName;
 pokemon.textContent = hashasUserEntered(userId);
-console.log(hashasUserEntered(userId));
+console.log(hasUserEntered(userId));
 pic.setAttribute("src", profilePicture);
 
 //pegando os cookies
