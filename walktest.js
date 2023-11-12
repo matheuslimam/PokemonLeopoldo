@@ -134,8 +134,35 @@ function rectangularCollision({rectangle1, rectangle2}){
     console.log('colidando')
 }
 
-// Simulação de contador de moedas
-let contadorMoedas = 0;
+// Função para definir um cookie
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// Função para obter o valor de um cookie
+function getCookie(name) {
+    const cname = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(cname) === 0) {
+            return c.substring(cname.length, c.length);
+        }
+    }
+    return "";
+}
+
+// Inicializa o contadorMoedas a partir do cookie ou define como 0 se não estiver presente
+let contadorMoedas = parseInt(getCookie('contadorMoedas')) || 0;
+document.getElementById('contadorMoedas').textContent = contadorMoedas;
+
 
 function animate(){
     window.requestAnimationFrame(animate)
@@ -153,6 +180,9 @@ function animate(){
       console.log('coletada')
       contadorMoedas++;
       document.getElementById('contadorMoedas').textContent = contadorMoedas
+
+      // Armazena o contadorMoedas em um cookie
+      setCookie('contadorMoedas', contadorMoedas, 365);
       // Aqui você pode adicionar lógica para contabilizar as moedas
       // Por exemplo: coinsCollected++;
     }
