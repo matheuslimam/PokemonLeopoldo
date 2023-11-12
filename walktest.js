@@ -89,6 +89,79 @@ const player = new Sprite({
 })
 
 
+const followingCharacterSpeed = 3;
+
+const userId = localStorage.getItem('user_id');
+const followingCharacterFront = new Image()
+const followingCharacterBack = new Image()
+const followingCharacterLeft = new Image()
+const followingCharacterRight = new Image()
+
+setCookie(`userPokemon_${userId}`, "bubassour", 365);
+
+if (getCookie(`userPokemon_${userId}`) == "bubassour" ){
+
+    followingCharacterFront.src = 'imgs/bubafront.png'
+    followingCharacterBack.src = 'imgs/bubaback.png'
+    followingCharacterLeft.src = 'imgs/bubaleft.png'
+    followingCharacterRight.src = 'imgs/bubaright.png'
+
+}
+
+else if (getCookie(`userPokemon_${userId}`) == "charmander" ){
+
+
+    followingCharacterFront.src = 'imgs/charmfront.png'
+    followingCharacterBack.src = 'imgs/charmback.png'
+    followingCharacterLeft.src = 'imgs/charmleft.png'
+    followingCharacterRight.src = 'imgs/charmright.png'
+
+}
+else if (getCookie(`userPokemon_${userId}`) == "squirtle" ){
+
+    followingCharacterFront.src = 'imgs/charmfront.png'
+    followingCharacterBack.src = 'imgs/charmback.png'
+    followingCharacterLeft.src = 'imgs/charmleft.png'
+    followingCharacterRight.src = 'imgs/charmright.png'
+    /*
+    followingCharacterFront.src = 'imgs/squirtfront.png'
+    followingCharacterBack.src = 'imgs/squirtback.png'
+    followingCharacterLeft.src = 'imgs/squirtleft.png'
+    followingCharacterRight.src = 'imgs/squirtright.png'
+*/
+}
+else if (getCookie(`userPokemon_${userId}`) == "pikachu" ){
+
+    followingCharacterFront.src = 'imgs/charmfront.png'
+    followingCharacterBack.src = 'imgs/charmback.png'
+    followingCharacterLeft.src = 'imgs/charmleft.png'
+    followingCharacterRight.src = 'imgs/charmright.png'
+    /*
+    followingCharacterFront.src = 'imgs/pikafront.png'
+    followingCharacterBack.src = 'imgs/pikaback.png'
+    followingCharacterLeft.src = 'imgs/pikaleft.png'
+    followingCharacterRight.src = 'imgs/pikaright.png'
+    */
+}
+
+const followingCharacter = new Sprite({
+    position: {
+        x: canvas.width + 75, // Defina a posição inicial conforme necessário
+        y: canvas.height * 2 - 20,
+    },
+    image: followingCharacterFront, // Substitua com a imagem do personagem que seguirá o jogador
+    frames: {
+        max: 4,
+    },
+    sprites: {
+        up: followingCharacterBack,
+        down: followingCharacterFront,
+        left: followingCharacterLeft,
+        right: followingCharacterRight
+    }
+    // Adicione outras configurações necessárias para o personagem que segue
+});
+
 const background = new Sprite({position:{
     x: offset.x,
     y: offset.y
@@ -111,16 +184,58 @@ const keys = {
     }
 }
 
-const coins = [];
-const min = 1;
-const max = 1200;
+let coinsPushed = getCookie('coinsPushed');
 
-// Adicione algumas moedas ao mapa, por exemplo:
-for (let i = 0; i < 5; i++){
-const randomIntX = Math.floor(Math.random() * (max - min + 1)) + min;
-const randomIntY = Math.floor(Math.random() * (max - min + 1)) + min;
-coins.push(new ImageCoin({ x: randomIntX , y: randomIntY  }, 'imgs/moeda.png'));
+const excludedAreas = [
+    { x: 920, y: 500, width: 300, height: 100}, // Adicione mais áreas conforme necessário
+     { x: 300, y: 0, width: 350, height: 300 }, // casa de baixo
+     { x: 0, y: 650, width: 600, height: 300 }, //casa principal
+     { x: 1600, y: 650, width: 400, height: 400 }, // laterais inferiores esquerdas
+     { x: 1650, y: -225, width: 200, height: 300 }, //laterais superiores direitas
+];
+
+const maxTotalCoins = 15;
+const coins = [];
+const centralPosition = { x: 920, y: 400 }; // Posição central
+const halfWidth = 875; // Metade da largura do retângulo
+const halfHeight = 370; // Metade da altura do retângulo
+
+function isInsideExcludedAreas(x, y) {
+    return excludedAreas.some((area) => {
+        return (
+            x >= area.x &&
+            x <= area.x + area.width &&
+            y >= area.y &&
+            y <= area.y + area.height
+        );
+    });
 }
+
+function isInsideBoundaries(x, y) {
+    return boundaries.some((boundary) =>
+        rectangularCollision({
+            rectangle1: { position: { x, y }, width: 50, height: 50 }, // Ajuste o valor de width e height conforme necessário
+            rectangle2: boundary,
+        })
+    );
+}
+if(coinsPushed == false){
+for (let i = 0; i < maxTotalCoins; i++) {
+    let randomIntX, randomIntY;
+
+    // Garante que a moeda não está dentro das áreas excluídas e das "boundaries"
+    do {
+        randomIntX = centralPosition.x + (Math.random() * 2 - 1) * halfWidth;
+        randomIntY = centralPosition.y + (Math.random() * 2 - 1) * halfHeight;
+    } while (isInsideExcludedAreas(randomIntX, randomIntY) || isInsideBoundaries(randomIntX, randomIntY));
+
+    coins.push(new ImageCoin({ x: randomIntX, y: randomIntY }, 'imgs/moeda.png'));
+    
+}
+setCookie('coinsPushed', "true", 0.02);
+coinsPushed = true;
+}
+
 
 const pescadorPosition = {
     x: 1700, // Substitua com as coordenadas desejadas
@@ -182,6 +297,7 @@ function animate(){
    player.draw()
    
    pescador.draw();
+   followingCharacter.draw()
 
    coins.forEach((coin) => {
     coin.draw();
@@ -202,10 +318,15 @@ function animate(){
     
     let moving = true
     player.moving = false
+    followingCharacter.moving = false
 
     if (keys.w.pressed && lastkey == 'w'){
         player.moving = true
         player.image = player.sprites.up
+
+        followingCharacter.moving = true
+        followingCharacter.image = followingCharacter.sprites.up
+
         for (let i = 0; i < boundaries.length; i++){
             const boundary = boundaries[i]
             if(
@@ -233,6 +354,11 @@ function animate(){
         else if (keys.a.pressed && lastkey == 'a'){ 
             player.moving = true
             player.image = player.sprites.left
+
+            followingCharacter.position.x = 550;
+            followingCharacter.moving = true
+            followingCharacter.image = followingCharacter.sprites.left
+
             for (let i = 0; i < boundaries.length; i++){
                 const boundary = boundaries[i]
                 if(
@@ -260,6 +386,10 @@ function animate(){
         else if (keys.s.pressed && lastkey == 's'){ 
             player.moving = true
             player.image = player.sprites.down
+
+            followingCharacter.moving = true
+            followingCharacter.image = followingCharacter.sprites.down
+
             for (let i = 0; i < boundaries.length; i++){
                 const boundary = boundaries[i]
                 if(
@@ -287,6 +417,11 @@ function animate(){
         else if (keys.d.pressed && lastkey == 'd'){ 
             player.moving = true
             player.image = player.sprites.right
+
+            followingCharacter.position.x = 370;
+            followingCharacter.moving = true
+            followingCharacter.image = followingCharacter.sprites.right
+
             for (let i = 0; i < boundaries.length; i++){
                 const boundary = boundaries[i]
                 if(
@@ -311,6 +446,10 @@ function animate(){
                 movable.position.x -=3
             })
         } 
+
+
+    
+
 } 
 
 
