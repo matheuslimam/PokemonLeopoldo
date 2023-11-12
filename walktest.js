@@ -171,6 +171,7 @@ function animate(){
         boundary.draw()
   })
    player.draw()
+   
 
    coins.forEach((coin) => {
     coin.draw();
@@ -188,7 +189,7 @@ function animate(){
     }
   });
 
-   
+    
     let moving = true
     player.moving = false
     if (keys.w.pressed && lastkey == 'w'){
@@ -302,6 +303,62 @@ function animate(){
 } 
 
 animate()
+
+// Criação de um NPC fixo em uma coordenada específica
+class NPC {
+    constructor(position) {
+        this.position = position;
+        this.spriteSheet = new Image();
+        this.spriteSheet.src = 'caminho_da_imagem_com_os_sprites.png'; // Substitua pelo caminho real da sua imagem
+
+        this.originalSpriteWidth = 392; // Largura original do sprite
+        this.originalSpriteHeight = 216; // Altura original do sprite
+        this.targetSpriteHeight = 64; // Altura desejada do sprite no mapa
+        this.currentSpriteIndex = 0;
+        this.frameCount = 0;
+    }
+
+    draw(backgroundPosition) {
+        // Atualiza o sprite a cada 10 quadros (ajuste conforme necessário)
+        if (this.frameCount % 10 === 0) {
+            this.currentSpriteIndex = (this.currentSpriteIndex + 1) % 4; // 4 é o número de sprites na imagem
+        }
+
+        // Calcula as coordenadas de recorte na imagem
+        const sourceX = this.currentSpriteIndex * this.originalSpriteWidth;
+        const sourceY = 0; // Se todos os sprites estão na mesma linha
+        const sourceWidth = this.originalSpriteWidth;
+        const sourceHeight = this.originalSpriteHeight;
+
+        // Calcula as dimensões redimensionadas do sprite
+        const targetWidth = (this.targetSpriteHeight / this.originalSpriteHeight) * this.originalSpriteWidth;
+
+        // Ajusta as coordenadas do NPC com base nas mudanças no backgroundPosition
+        const adjustedX = this.position.x - backgroundPosition.x;
+        const adjustedY = this.position.y - backgroundPosition.y;
+
+        // Desenha o sprite na tela
+        c.drawImage(
+            this.spriteSheet,
+            sourceX,
+            sourceY,
+            sourceWidth,
+            sourceHeight,
+            adjustedX,
+            adjustedY,
+            targetWidth,
+            this.targetSpriteHeight
+        );
+
+        // Incrementa o contador de quadros
+        this.frameCount++;
+    }
+}
+const pescadorPosition = {
+    x: 500, // Substitua com as coordenadas desejadas
+    y: 500
+};
+const pescador = new NPC(pescadorPosition);
 
 let lastkey = ''
 window.addEventListener('keydown',(e) => {
