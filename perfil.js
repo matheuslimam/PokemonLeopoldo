@@ -9,10 +9,11 @@ function hasUserEntered(userId){
     return getCookie(`userPokemon_${userId}`);
 }
 
-//muda o atributos da pagina
+//muda o atributos da pagina noavmente
 fullname.textContent = userName;
-pokemon.textContent = hashasUserEntered(userId);
+pokemon.textContent = hasUserEntered(userId);
 console.log(hasUserEntered(userId));
+console.log("alo");
 pic.setAttribute("src", profilePicture);
 
 //pegando os cookies
