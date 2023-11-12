@@ -92,6 +92,7 @@ const player = new Sprite({
 const followingCharacterSpeed = 3;
 
 const userId = localStorage.getItem('user_id');
+//cria as imagens
 const followingCharacterFront = new Image()
 const followingCharacterBack = new Image()
 const followingCharacterLeft = new Image()
@@ -152,6 +153,54 @@ const followingCharacter = new Sprite({
     // Adicione outras configurações necessárias para o personagem que segue
 });
 
+const pokemonTeam1 = new Image();
+pokemonTeam1.src = 'imgs/bubafront.png';
+
+const pokemonTeam2 = new Image();
+pokemonTeam2.src = 'imgs/charmfront.png';
+
+const pokemonTeam3 = new Image();
+pokemonTeam3.src = 'imgs/pikafront.png';
+
+const pokemon1 = new Sprite({
+    position: {
+        x: 300,
+        y: 300,
+    },
+    image: pokemonTeam1,
+    frames: {
+        max: 4,
+    },
+
+});
+
+const pokemon2 = new Sprite({
+    position: {
+        x: 600,
+        y: 600,
+    },
+    image: pokemonTeam2,
+    frames: {
+        max: 4,
+    },
+
+});
+
+const pokemon3 = new Sprite({
+    position: {
+        x: 750,
+        y: 0,
+    },
+    image: pokemonTeam3,
+    frames: {
+        max: 4,
+    },
+
+});
+
+
+
+
 const background = new Sprite({position:{
     x: offset.x,
     y: offset.y
@@ -173,6 +222,15 @@ const keys = {
         pressed: false
     }
 }
+
+
+function isPlayerCollidingWithCharacter(player, character) {
+    return rectangularCollision({
+        rectangle1: player,
+        rectangle2: character,
+    });
+}
+
 
 let coinsPushed = getCookie('coinsPushed');
 
@@ -237,7 +295,7 @@ const pescador = new NPC({
     spriteSheetSrc: 'imgs/NPCpescadorSS.gif', // Substitua pelo caminho real da sua imagem do pescador
 });
 
-const movables = [background, ...boundaries, ...coins, pescador]
+const movables = [background, ...boundaries, ...coins, pescador, pokemon1, pokemon2, pokemon3]
 
 function rectangularCollision({rectangle1, rectangle2}){
  return(
@@ -284,6 +342,16 @@ function animate(){
     boundaries.forEach((boundary) =>{
         boundary.draw()
   })
+
+  if(hora >= 9 && hora <= 10 && !getCookie(`pokemon1Capture_${userId}`)){
+    pokemon1.draw();
+  }
+  else if(hora >= 15 && hora <= 16 && !getCookie(`pokemon2Capture_${userId}`)){
+   pokemon2.draw();
+   }
+   else if(hora >= 20 && hora <= 22 && !getCookie(`pokemon3Capture_${userId}`)){
+   pokemon3.draw();
+  }
    player.draw()
    
    pescador.draw();
@@ -304,6 +372,29 @@ function animate(){
       // Por exemplo: coinsCollected++;
     }
   });
+
+if (isPlayerCollidingWithCharacter(player, pokemon1) && !getCookie(`pokemon1Capture_${userId}`)) {
+
+    console.log('Player capturou character1');
+    pokemon1.position.x = 10000
+    pokemon1.position.y = 10000
+    setCookie(`pokemon1Capture_${userId}`, "true", 365)
+}
+else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon2Capture_${userId}`)) {
+
+    console.log('Player capturou character1');
+    pokemon2.position.x = 10000
+    pokemon2.position.y = 10000
+    setCookie(`pokemon2Capture_${userId}`, "true", 365)
+}
+
+else if (isPlayerCollidingWithCharacter(player, pokemon3) && !getCookie(`pokemon3Capture_${userId}`)) {
+
+    console.log('Player capturou character1');
+    pokemon3.position.x = 10000
+    pokemon3.position.y = 10000
+    setCookie(`pokemon3Capture_${userId}`, "true", 365)
+}
 
     
     let moving = true
