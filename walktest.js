@@ -97,7 +97,6 @@ const followingCharacterBack = new Image()
 const followingCharacterLeft = new Image()
 const followingCharacterRight = new Image()
 
-setCookie(`userPokemon_${userId}`, "bubassour", 365);
 
 if (getCookie(`userPokemon_${userId}`) == "bubassour" ){
 
@@ -119,29 +118,20 @@ else if (getCookie(`userPokemon_${userId}`) == "charmander" ){
 }
 else if (getCookie(`userPokemon_${userId}`) == "squirtle" ){
 
-    followingCharacterFront.src = 'imgs/charmfront.png'
-    followingCharacterBack.src = 'imgs/charmback.png'
-    followingCharacterLeft.src = 'imgs/charmleft.png'
-    followingCharacterRight.src = 'imgs/charmright.png'
-    /*
+
     followingCharacterFront.src = 'imgs/squirtfront.png'
     followingCharacterBack.src = 'imgs/squirtback.png'
     followingCharacterLeft.src = 'imgs/squirtleft.png'
     followingCharacterRight.src = 'imgs/squirtright.png'
-*/
+
 }
 else if (getCookie(`userPokemon_${userId}`) == "pikachu" ){
 
-    followingCharacterFront.src = 'imgs/charmfront.png'
-    followingCharacterBack.src = 'imgs/charmback.png'
-    followingCharacterLeft.src = 'imgs/charmleft.png'
-    followingCharacterRight.src = 'imgs/charmright.png'
-    /*
     followingCharacterFront.src = 'imgs/pikafront.png'
     followingCharacterBack.src = 'imgs/pikaback.png'
     followingCharacterLeft.src = 'imgs/pikaleft.png'
     followingCharacterRight.src = 'imgs/pikaright.png'
-    */
+    
 }
 
 const followingCharacter = new Sprite({
@@ -244,7 +234,7 @@ const pescadorPosition = {
 
 const pescador = new NPC({
     position: pescadorPosition,
-    spriteSheetSrc: 'imgs/NPC sprite pescador.png', // Substitua pelo caminho real da sua imagem do pescador
+    spriteSheetSrc: 'imgs/NPCpescadorSS.gif', // Substitua pelo caminho real da sua imagem do pescador
 });
 
 const movables = [background, ...boundaries, ...coins, pescador]
@@ -324,6 +314,8 @@ function animate(){
         player.moving = true
         player.image = player.sprites.up
 
+        followingCharacter.position.x = 475;
+        followingCharacter.position.y = 360;
         followingCharacter.moving = true
         followingCharacter.image = followingCharacter.sprites.up
 
@@ -356,6 +348,7 @@ function animate(){
             player.image = player.sprites.left
 
             followingCharacter.position.x = 550;
+            followingCharacter.position.y = 300;
             followingCharacter.moving = true
             followingCharacter.image = followingCharacter.sprites.left
 
@@ -386,6 +379,9 @@ function animate(){
         else if (keys.s.pressed && lastkey == 's'){ 
             player.moving = true
             player.image = player.sprites.down
+
+            followingCharacter.position.x = 470;
+            followingCharacter.position.y = 185;
 
             followingCharacter.moving = true
             followingCharacter.image = followingCharacter.sprites.down
@@ -418,7 +414,8 @@ function animate(){
             player.moving = true
             player.image = player.sprites.right
 
-            followingCharacter.position.x = 370;
+            followingCharacter.position.x = 400;
+            followingCharacter.position.y = 300;
             followingCharacter.moving = true
             followingCharacter.image = followingCharacter.sprites.right
 
