@@ -125,7 +125,7 @@ else if (getCookie(`userPokemon_${userId}`) == "squirtle" ){
     followingCharacterRight.src = 'imgs/squirtright.png'
 
 }
-else if (getCookie(`userPokemon_${userId}`) == "pikachu" ){
+else if (getCookie(`userPokemon_${userId}`) == "Pikachu" ){
 
     followingCharacterFront.src = 'imgs/pikafront.png'
     followingCharacterBack.src = 'imgs/pikaback.png'
