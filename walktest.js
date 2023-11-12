@@ -97,7 +97,7 @@ const followingCharacterBack = new Image()
 const followingCharacterLeft = new Image()
 const followingCharacterRight = new Image()
 
-
+//verifico qual eh o inicial da pessoa
 if (getCookie(`userPokemon_${userId}`) == "bubassour" ){
 
     followingCharacterFront.src = 'imgs/bubafront.png'
