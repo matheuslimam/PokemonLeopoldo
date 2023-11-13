@@ -365,7 +365,10 @@ function showAchievementPopup(achievementName) {
       setTimeout(() => {
     popup.style.opacity = 0;
       }, 3000); // Exibir por 3 segundos
+
+      return true
     }
+    
 }
   
 
@@ -375,7 +378,7 @@ if(!getCookie(`completePokemon__${userId}`)){
 
 const instructionsArray = [
     'Para ir para a próxima vila e completar sua missão, você deve recrutar 3 pokémons para o seu time!',
-    'os Pokemons irão aparecer às 9, 15 e 20 horas para você captura-los',
+    'os Pokemons irão aparecer às 7, 15 e 19 horas para você captura-los',
     'Explore as áreas circundantes para encontrar novos pokémons!',
     'Lembre-se de pegar as moedas espalhadas pelo mapa, você vai precisar de 30!',
     'Converse com outros NPCs para obter dicas valiosas sobre a região!'
@@ -412,13 +415,15 @@ function animate(){
         boundary.draw()
   })
 
-  if(hora >=9 && hora <= 10 && !getCookie(`pokemon1Capture_${userId}`)){
+  
+
+  if(hora >=7 && hora <= 10 && !getCookie(`pokemon1Capture_${userId}`)){
     pokemon1.draw();
   }
-  if(hora >= 15 && hora <= 16 && !getCookie(`pokemon2Capture_${userId}`)){
+  if(hora >= 15 && hora <= 18 && !getCookie(`pokemon2Capture_${userId}`)){
    pokemon2.draw();
    }
-   else if(hora >= 20 && hora <= 22 && !getCookie(`pokemon3Capture_${userId}`)){
+   else if(hora >= 19 && hora <= 22 && !getCookie(`pokemon3Capture_${userId}`)){
    pokemon3.draw();
   }
    player.draw()
@@ -437,8 +442,11 @@ function animate(){
         showAchievementPopup("Mapa Desbloqueado");
     }
     
-    if(getCookie(`pokemon1Capture_${userId}`) || getCookie(`pokemon2Capture_${userId}`) || getCookie(`pokemon3Capture_${userId}`)){
+    
+
+    if(getCookie(`pokemon1Capture_${userId}`) || getCookie(`pokemon2Capture_${userId}`) || getCookie(`pokemon3Capture_${userId}`) && showAchievementPopup("Primeira Captura")){
         showAchievementPopup("Primeira Captura");
+        console.log("capturou pela 1 vez")
     }
 
    if (!coin.collected && rectangularCollision({ rectangle1: player, rectangle2: coin })) {
@@ -459,14 +467,14 @@ function animate(){
     }
   });
 
-if (isPlayerCollidingWithCharacter(player, pokemon1) && !getCookie(`pokemon1Capture_${userId}`)) {
+if (isPlayerCollidingWithCharacter(player, pokemon1) && !getCookie(`pokemon1Capture_${userId}`) && hora >=7 && hora <= 10) {
 
     console.log('Player capturou POKEMON1');
     pokemon1.position.x = 10000
     pokemon1.position.y = 10000
     setCookie(`pokemon1Capture_${userId}`, "true", 365)
 }
-else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon2Capture_${userId}`)) {
+else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon2Capture_${userId}`) && hora >= 15 && hora <= 18 ) {
 
     console.log('Player capturou POKEMON2');
     pokemon2.position.x = 10000
@@ -474,7 +482,7 @@ else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon
     setCookie(`pokemon2Capture_${userId}`, "true", 365)
 }
 
-else if (isPlayerCollidingWithCharacter(player, pokemon3) && !getCookie(`pokemon3Capture_${userId}`)) {
+else if (isPlayerCollidingWithCharacter(player, pokemon3) && !getCookie(`pokemon3Capture_${userId}`) && hora >= 19 && hora <= 22 ) {
 
     console.log('Player capturou POKEMON3');
     pokemon3.position.x = 10000
