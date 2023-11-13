@@ -26,12 +26,12 @@
                 <h1>Monte o seu time!</h1>
             </div>
         <fieldset>
-            <legend><h2>Escolha até 3 pokemóns para montar o seu time:</h2></legend>
+            <legend><h2>Capture 3 pokemóns para montar o seu time</h2></legend>
 
 
 <!------------------------------------------------------------------------------------------------------------------->
 
-<div id="Custom" class="tabcontent">
+<!-- <div id="Custom" class="tabcontent">
 <div class="searchBox">
 
     <input class="searchInput" type="text" name="" placeholder="Busque seu Pokemon!" id="customSearch"> 
@@ -67,32 +67,37 @@
 </div>
 </div>
 <br>
-<br>
+<br> -->
 
 
 
 <!------------------------------------------------------------------------------------------------------------------->
 
             <div class="fieldset">
-                <div class="checkbox-option">
-                    <input type="checkbox" id="bulbasaur" name="bulbasaur"/>
-                    <label for="bulbasaur">Bulbasaur</label>
-                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif" alt="Bulbasaur, pokemón do tipo planta">
+                
+                <div class="checkbox-option" id="pokemon1">
+                    <img id="pok1img" src="https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif" alt="Venusaur, pokemón do tipo planta">
+                    <label id="venusaur" for="venusaur">Venusaur</label>
+                    <button onclick="selecionarCompanheiro('pokemon1')" id="btnPokemon1">companheiro</button>
+                </div>
+
+                <div class="checkbox-option" id="pokemon2" >
+                    <img id="pok2img" src="https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif" alt="Charmander, pokemón do tipo fogo">
+                    <label id="charmander" for="charmander">Charmander</label>
+                    <button onclick="selecionarCompanheiro('pokemon2')" id="btnPokemon2">companheiro</button>
                 </div>
                 
-                <div class="checkbox-option">
-                    <input type="checkbox" id="ivysaur" name="ivysaur" />
-                    <label for="ivysaur">Ivysaur</label>
-                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/ivysaur.gif" alt="Ivysaur, pokemón do tipo planta">
+                <div class="checkbox-option" id="pokemon3">
+                    <img id="pok3img" src="https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif" alt="Pikachu, pokemón do tipo elétrico">
+                    <label id="pikachu" for="pikachu">Pikachu</label>
+                    <button onclick="selecionarCompanheiro('pokemon3')" id="btnPokemon3">companheiro</button>
                 </div>
 
-                <div class="checkbox-option">
-                    <input type="checkbox" id="venusaur" name="venusaur" />
-                    <label for="venusaur">Venusaur</label>
-                    <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif" alt="Venusaur, pokemón do tipo planta">
-                </div>
 
-                <div class="checkbox-option">
+                
+               
+
+                <!-- <div class="checkbox-option">
                     <input type="checkbox" id="charmander" name="charmander" />
                     <label for="charmander">Charmander</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif" alt="Charmander, pokemón do tipo fogo">
@@ -198,72 +203,151 @@
                     <input type="checkbox" id="alakazam" name="alakazam" />
                     <label for="alakazam">Alakazam</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/alakazam.gif" alt="Alakazam, pokemón do tipo psíquico">
-                </div>
+                </div>  -->
             </div>
         </fieldset>
 
           <script>
-            // Captura todos os elementos checkbox dentro do fieldset
-            const checkboxes = document.querySelectorAll('fieldset input[type="checkbox"]');
-            
-            // Define o número máximo de seleções permitidas
-            const maxSelections = 3;
-            
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', () => {
-                    // Conta quantas checkboxes estão selecionadas
-                    const selectedCheckboxes = document.querySelectorAll('fieldset input[type="checkbox"]:checked').length;
-        
-                    // Se exceder o número máximo, desmarca a última checkbox selecionada
-                    if (selectedCheckboxes > maxSelections) {
-                        checkbox.checked = false;
-                    }
-                });
-            });
 
-            var checkboxes2 = document.querySelectorAll('.checkbox-option input[type="checkbox"]');
-                checkboxes2.forEach(function (checkbox) {
-                checkbox.addEventListener('change', function () {
-                    var checkboxOption = this.closest('.checkbox-option');
-        
-                    if (this.checked) {
-                        checkboxOption.style.backgroundColor = '#23be00';
-                     }        
-                        else {
-                            checkboxOption.style.backgroundColor = ''; // Remove o estilo de fundo
+const userId = localStorage.getItem('user_id');
+
+if (getCookie(`pokemon1Capture_${userId}`)) {
+    pokemon1.style.backgroundColor = '#23be00';
+    pok1img.src = 'https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif'; 
+    venusaur.textContent = 'Vensaur'
+    
+}        
+else {
+    pokemon1.style.backgroundColor = ''; 
+    pok1img.src = 'imgs/interroga.png';
+    venusaur.textContent = 'Descubra ás 9h' 
+}
+
+if (getCookie(`pokemon2Capture_${userId}`)) {
+    pokemon2.style.backgroundColor = '#23be00';
+    pok2img.src = 'https://img.pokemondb.net/sprites/black-white/anim/normal/charmander.gif'; 
+    charmander.textContent = 'Charmander'
+
+}        
+else {
+    pokemon2.style.backgroundColor = ''; 
+    pok2img.src = 'imgs/interroga.png';
+    pikachu.textContent = 'Descubra ás 15h' 
+}
+
+if (getCookie(`pokemon3Capture_${userId}`)) {
+    pokemon3.style.backgroundColor = '#23be00';
+    pok3img.src = 'https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu.gif';  
+    pikachu.textContent = 'Pikachu'
+}        
+else {
+    pokemon3.style.backgroundColor = ''; 
+    pok3img.src = 'imgs/interroga.png'; 
+    pikachu.textContent = 'Descubra ás 20h'
+}
+
+//mudar para os pokemons reais, e alem disso mudar em walktest tb (add os novos personagens)
+        function selecionarCompanheiro(id) {
+            if(id == "pokemon1" && getCookie(`pokemon1Capture_${userId}`)){
+            setCookie(`userPokemon_${userId}`, "bubassour")
+            }
+            else if(id == "pokemon2" && getCookie(`pokemon2Capture_${userId}`)){
+            setCookie(`userPokemon_${userId}`, "charmander")
+            }
+            else if(id == "pokemon3" && getCookie(`pokemon3Capture_${userId}`)){
+            setCookie(`userPokemon_${userId}`, "Pikachu")
+            }
+            else{
+            alert("Você não tem esse pokemon ainda")
+            }
         }
-    });
-});
+            // Função para definir um cookie
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
 
-            function searchPokemon() {
-                var searchTerm = document.getElementById('customSearch').value;
+// Função para obter o valor de um cookie
+function getCookie(name) {
+    const cname = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(cname) === 0) {
+            return c.substring(cname.length, c.length);
+        }
+    }
+    return "";
+}
 
-                // Transforme o texto de entrada para minúsculas
-                searchTerm = searchTerm.toLowerCase();
 
-                // Escape o valor de searchTerm
-                searchTerm = escapeHTML(searchTerm);
+//             // Captura todos os elementos checkbox dentro do fieldset
+//             const checkboxes = document.querySelectorAll('fieldset input[type="checkbox"]');
+            
+//             // Define o número máximo de seleções permitidas
+//             const maxSelections = 3;
+            
+//             checkboxes.forEach(checkbox => {
+//                 checkbox.addEventListener('change', () => {
+//                     // Conta quantas checkboxes estão selecionadas
+//                     const selectedCheckboxes = document.querySelectorAll('fieldset input[type="checkbox"]:checked').length;
+        
+//                     // Se exceder o número máximo, desmarca a última checkbox selecionada
+//                     if (selectedCheckboxes > maxSelections) {
+//                         checkbox.checked = false;
+//                     }
+//                 });
+//             });
 
-                // É aqui que a mágica acontece
-                var element = document.getElementById(searchTerm);
+//             var checkboxes2 = document.querySelectorAll('.checkbox-option input[type="checkbox"]');
+//                 checkboxes2.forEach(function (checkbox) {
+//                 checkbox.addEventListener('change', function () {
+//                     var checkboxOption = this.closest('.checkbox-option');
+        
+//                     if (this.checked) {
+//                         checkboxOption.style.backgroundColor = '#23be00';
+//                      }        
+//                         else {
+//                             checkboxOption.style.backgroundColor = ''; // Remove o estilo de fundo
+//         }
+//     });
+// });
 
-                if (element) {
-                    // Adicione uma classe de destaque ao elemento
-                    element.classList.add('destacado');
-                    var elementRect = element.getBoundingClientRect();
-                    var absoluteElementTop = elementRect.top + window.pageYOffset;
-                    var middle = absoluteElementTop - (window.innerHeight / 2);
-                    window.scrollTo(0, middle);
-                } else {
-                    alert('Pokémon não encontrado!');
-                }
-            }
+//             function searchPokemon() {
+//                 var searchTerm = document.getElementById('customSearch').value;
 
-            // Função para escapar caracteres especiais HTML
-            function escapeHTML(input) {
-                var doc = new DOMParser().parseFromString(input, "text/html");
-                return doc.body.textContent || "";
-            }
+//                 // Transforme o texto de entrada para minúsculas
+//                 searchTerm = searchTerm.toLowerCase();
+
+//                 // Escape o valor de searchTerm
+//                 searchTerm = escapeHTML(searchTerm);
+
+//                 // É aqui que a mágica acontece
+//                 var element = document.getElementById(searchTerm);
+
+//                 if (element) {
+//                     // Adicione uma classe de destaque ao elemento
+//                     element.classList.add('destacado');
+//                     var elementRect = element.getBoundingClientRect();
+//                     var absoluteElementTop = elementRect.top + window.pageYOffset;
+//                     var middle = absoluteElementTop - (window.innerHeight / 2);
+//                     window.scrollTo(0, middle);
+//                 } else {
+//                     alert('Pokémon não encontrado!');
+//                 }
+//             }
+
+//             // Função para escapar caracteres especiais HTML
+//             function escapeHTML(input) {
+//                 var doc = new DOMParser().parseFromString(input, "text/html");
+//                 return doc.body.textContent || "";
+//             }
 
         </script>
         </div>
