@@ -68,31 +68,3 @@ class ImageCoin {
     }
   }
   
-  class NPC {
-    constructor({ position, spriteSheetSrc }) {
-        this.position = position;
-        this.spriteSheet = new Image();
-        this.spriteSheet.src = spriteSheetSrc;
-        this.originalSpriteWidth = 170; // Largura original do sprite
-        this.originalSpriteHeight = 400; // Altura original do sprite
-        this.targetSpriteHeight = 64; // Altura desejada do sprite no mapa
-        this.currentSpriteIndex = 0;
-        this.frameCount = 0;
-    }
-
-    draw() {
-        c.drawImage(
-            this.spriteSheet,
-            this.currentSpriteIndex * this.originalSpriteWidth,
-            0,
-            this.originalSpriteWidth,
-            this.originalSpriteHeight,
-            this.position.x,
-            this.position.y,
-            this.originalSpriteWidth,
-            this.targetSpriteHeight
-        );
-
-        // Adicione qualquer lógica de animação aqui, se necessário
-    }
-}

@@ -164,7 +164,7 @@ pokemonTeam3.src = 'imgs/pikafront.png';
 
 const pokemon1 = new Sprite({
     position: {
-        x: 300,
+        x: 700,
         y: 300,
     },
     image: pokemonTeam1,
@@ -176,8 +176,8 @@ const pokemon1 = new Sprite({
 
 const pokemon2 = new Sprite({
     position: {
-        x: 600,
-        y: 600,
+        x: 900,
+        y: 300,
     },
     image: pokemonTeam2,
     frames: {
@@ -196,6 +196,24 @@ const pokemon3 = new Sprite({
         max: 4,
     },
 
+});
+
+
+const NPCpic = new Image();
+NPCpic.src = "imgs/NPCspritepescadorv2.png";
+
+const NPC = new Sprite({
+    position: {
+        x: 1700,
+        y: 200,
+    },
+    image: NPCpic,
+    frames: {
+        max: 4,
+    },
+    sprites: {
+        up: NPCpic,
+        }
 });
 
 
@@ -285,17 +303,9 @@ coinsPushed = true;
 }
 
 
-const pescadorPosition = {
-    x: 1700, // Substitua com as coordenadas desejadas
-    y: 200,
-};
 
-const pescador = new NPC({
-    position: pescadorPosition,
-    spriteSheetSrc: 'imgs/NPCpescadorSS.gif', // Substitua pelo caminho real da sua imagem do pescador
-});
 
-const movables = [background, ...boundaries, ...coins, pescador, pokemon1, pokemon2, pokemon3]
+const movables = [background, ...boundaries, ...coins, NPC, pokemon1, pokemon2, pokemon3]
 
 function rectangularCollision({rectangle1, rectangle2}){
  return(
@@ -335,6 +345,46 @@ function getCookie(name) {
 let contadorMoedas = parseInt(getCookie('contadorMoedas')) || 0;
 document.getElementById('contadorMoedas').textContent = contadorMoedas;
 
+console.log(getCookie(`pokemon1Capture_${userId}`) && getCookie(`pokemon2Capture_${userId}`) && getCookie(`pokemon3Capture_${userId}` )  )
+
+if(getCookie(`pokemon1Capture_${userId}`) && getCookie(`pokemon2Capture_${userId}`) && getCookie(`pokemon3Capture_${userId}`) && getCookie('contadorMoedas') >= 30){
+    setCookie(`completePokemon__${userId}`, "true", 365);
+}
+
+
+if(!getCookie(`completePokemon__${userId}`)){
+
+const instructionsArray = [
+    'Para ir para a próxima vila e completar sua missão, você deve recrutar 3 pokémons para o seu time!',
+    'os Pokemons irão aparecer às 9, 15 e 20 horas para você captura-los',
+    'Explore as áreas circundantes para encontrar novos pokémons!',
+    'Lembre-se de pegar as moedas espalhadas pelo mapa, você vai precisar de 30!',
+    'Converse com outros NPCs para obter dicas valiosas sobre a região!'
+];
+
+// Variável para rastrear a instrução atual
+let currentInstructionIndex = 0;
+
+// Função para obter a próxima instrução
+function getNextInstruction() {
+    const instruction = instructionsArray[currentInstructionIndex];
+    currentInstructionIndex = (currentInstructionIndex + 1) % instructionsArray.length; // Avança para a próxima instrução
+    return instruction;
+}
+
+// Inicia o temporizador uma vez fora do bloco if
+const instructionTimer = setInterval(function() {
+    const popup2 = document.getElementById('popup2');
+    const instructions = document.getElementById('instructions');
+    instructions.textContent = getNextInstruction();
+    popup2.style.display = 'flex';
+}, 5000);
+}
+else{
+    instructions.textContent = "Parabéns você comcluiu sua missão aqui"
+    instructions2.textContent = "Vamos te levar ao outro mapa em instantes";
+    //redirecionar para outro mapa
+}
 
 function animate(){
     window.requestAnimationFrame(animate)
@@ -343,18 +393,19 @@ function animate(){
         boundary.draw()
   })
 
-  if(hora >= 9 && hora <= 10 && !getCookie(`pokemon1Capture_${userId}`)){
+  if(hora >=9 && hora <= 10 && !getCookie(`pokemon1Capture_${userId}`)){
     pokemon1.draw();
   }
-  else if(hora >= 15 && hora <= 16 && !getCookie(`pokemon2Capture_${userId}`)){
+  if(hora >= 15 && hora <= 16 && !getCookie(`pokemon2Capture_${userId}`)){
    pokemon2.draw();
    }
-   else if(hora >= 20 && hora <= 22 && !getCookie(`pokemon3Capture_${userId}`)){
+   if(hora >= 20 && hora <= 22 && !getCookie(`pokemon3Capture_${userId}`)){
    pokemon3.draw();
   }
    player.draw()
    
-   pescador.draw();
+   //pescador.draw();
+   NPC.draw()
    followingCharacter.draw()
 
    coins.forEach((coin) => {
@@ -375,14 +426,14 @@ function animate(){
 
 if (isPlayerCollidingWithCharacter(player, pokemon1) && !getCookie(`pokemon1Capture_${userId}`)) {
 
-    console.log('Player capturou character1');
+    console.log('Player capturou POKEMON1');
     pokemon1.position.x = 10000
     pokemon1.position.y = 10000
     setCookie(`pokemon1Capture_${userId}`, "true", 365)
 }
 else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon2Capture_${userId}`)) {
 
-    console.log('Player capturou character1');
+    console.log('Player capturou POKEMON2');
     pokemon2.position.x = 10000
     pokemon2.position.y = 10000
     setCookie(`pokemon2Capture_${userId}`, "true", 365)
@@ -390,14 +441,29 @@ else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon
 
 else if (isPlayerCollidingWithCharacter(player, pokemon3) && !getCookie(`pokemon3Capture_${userId}`)) {
 
-    console.log('Player capturou character1');
+    console.log('Player capturou POKEMON3');
     pokemon3.position.x = 10000
     pokemon3.position.y = 10000
     setCookie(`pokemon3Capture_${userId}`, "true", 365)
 }
 
+
+if (isPlayerCollidingWithCharacter(player, NPC)) {
+   
+    const popup2 = document.getElementById('popup2');
+    popup2.style.display = 'flex';
+} 
+else {
+    popup2.style.display = 'none';
+    //clearInterval(instructionTimer);
+}
+
     
     let moving = true
+
+    NPC.moving = true
+    NPC.image = NPC.sprites.up
+
     player.moving = false
     followingCharacter.moving = false
 
@@ -539,6 +605,7 @@ else if (isPlayerCollidingWithCharacter(player, pokemon3) && !getCookie(`pokemon
     
 
 } 
+
 
 
 
