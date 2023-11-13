@@ -455,10 +455,10 @@ function animate(){
       contadorMoedas++;
       document.getElementById('contadorMoedas').textContent = contadorMoedas
       if(contadorMoedas == 1){
-        showAchievementPopup("Primeira Moeda");
+        showAchievementPopup("Primeira Moeda!");
         }
         else if(contadorMoedas == 30){
-        showAchievementPopup("Finalmente 30!");
+        showAchievementPopup("Finalmente, 30!");
         }
       // Armazena o contadorMoedas em um cookie
       setCookie('contadorMoedas', contadorMoedas, 365);
