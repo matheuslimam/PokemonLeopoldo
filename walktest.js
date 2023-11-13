@@ -50,6 +50,7 @@ c.fillRect(0, 0, canvas.width, canvas.height)
 
 const hora = new Date().getHours()
 
+//muda de dia para noite
 const image = new Image()
 if (hora >= 6 && hora <= 18){
     image.src = 'imgs/Pellet Town.png'
@@ -154,7 +155,7 @@ const followingCharacter = new Sprite({
 });
 
 const pokemonTeam1 = new Image();
-pokemonTeam1.src = 'imgs/bubafront.png';
+pokemonTeam1.src = 'imgs/pokemon1.png';
 
 const pokemonTeam2 = new Image();
 pokemonTeam2.src = 'imgs/charmfront.png';
@@ -381,7 +382,7 @@ const instructionTimer = setInterval(function() {
 }, 5000);
 }
 else{
-    instructions.textContent = "Parabéns você comcluiu sua missão aqui"
+    instructions.textContent = "Parabéns você concluiu sua missão aqui"
     instructions2.textContent = "Vamos te levar ao outro mapa em instantes";
     //redirecionar para outro mapa
 }
@@ -399,7 +400,7 @@ function animate(){
   if(hora >= 15 && hora <= 16 && !getCookie(`pokemon2Capture_${userId}`)){
    pokemon2.draw();
    }
-   if(hora >= 20 && hora <= 22 && !getCookie(`pokemon3Capture_${userId}`)){
+   else if(hora >= 20 && hora <= 22 && !getCookie(`pokemon3Capture_${userId}`)){
    pokemon3.draw();
   }
    player.draw()
