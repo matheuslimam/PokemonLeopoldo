@@ -75,19 +75,19 @@
 
             <div class="fieldset">
                 <div class="checkbox-option">
-                    <input type="checkbox" id="bulbasaur" name="bulbasaur"/>
+                    <input type="checkbox" id="bulbasaur" name="bulbasaur" tabindex="0"/>
                     <label for="bulbasaur">Bulbasaur</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif" alt="Bulbasaur, pokemón do tipo planta">
                 </div>
                 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="ivysaur" name="ivysaur" />
+                    <input type="checkbox" id="ivysaur" name="ivysaur" tabindex="0"/>
                     <label for="ivysaur">Ivysaur</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/ivysaur.gif" alt="Ivysaur, pokemón do tipo planta">
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="venusaur" name="venusaur" />
+                    <input type="checkbox" id="venusaur" name="venusaur" tabindex="0"/>
                     <label for="venusaur">Venusaur</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif" alt="Venusaur, pokemón do tipo planta">
                 </div>
@@ -117,7 +117,7 @@
                 </div>
 
                 <div class="checkbox-option">
-                    <input type="checkbox" id="wartortle" name="wartortle" />
+                    <input type="checkbox" id="wartortle" name="wartortle"/>
                     <label for="wartortle">Wartortle</label>
                     <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/wartortle.gif" alt="Wartortle, pokemón do tipo água">
                 </div>
@@ -264,7 +264,37 @@
                 var doc = new DOMParser().parseFromString(input, "text/html");
                 return doc.body.textContent || "";
             }
+        
+            const checkboxElements = document.querySelectorAll('input[type="checkbox"]');
+let currentFocus = 0;
 
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+        e.preventDefault();
+
+        if (e.shiftKey) {
+            currentFocus = (currentFocus - 1 + checkboxElements.length) % checkboxElements.length;
+        } else {
+            currentFocus = (currentFocus + 1) % checkboxElements.length;
+        }
+
+        checkboxElements[currentFocus].focus();
+        checkboxElements[currentFocus].scrollIntoView({ behavior: "smooth", block: "center" });
+    } else if ((e.key === 'ArrowUp' || e.key === 'ArrowLeft') && currentFocus > 0) {
+        e.preventDefault();
+        currentFocus--;
+        checkboxElements[currentFocus].focus();
+        checkboxElements[currentFocus].scrollIntoView({ behavior: "smooth", block: "center" });
+    } else if ((e.key === 'ArrowDown' || e.key === 'ArrowRight') && currentFocus < checkboxElements.length - 1) {
+        e.preventDefault();
+        currentFocus++;
+        checkboxElements[currentFocus].focus();
+        checkboxElements[currentFocus].scrollIntoView({ behavior: "smooth", block: "center" });
+    } else if (e.key === 'Enter') {
+        e.preventDefault();
+        checkboxElements[currentFocus].click();
+    }
+});
         </script>
         </div>
     </body>
