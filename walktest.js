@@ -346,11 +346,29 @@ function getCookie(name) {
 let contadorMoedas = parseInt(getCookie('contadorMoedas')) || 0;
 document.getElementById('contadorMoedas').textContent = contadorMoedas;
 
-console.log(getCookie(`pokemon1Capture_${userId}`) && getCookie(`pokemon2Capture_${userId}`) && getCookie(`pokemon3Capture_${userId}` )  )
 
-if(getCookie(`pokemon1Capture_${userId}`) && getCookie(`pokemon2Capture_${userId}`) && getCookie(`pokemon3Capture_${userId}`) && getCookie('contadorMoedas') >= 30){
-    setCookie(`completePokemon__${userId}`, "true", 365);
+
+
+function showAchievementPopup(achievementName) {
+
+    const userId = localStorage.getItem('user_id');    
+    if(!getCookie(`${achievementName}_${userId}`)){
+
+    const popup = document.getElementById('achievementPopup');
+
+
+       popup.style.opacity = 1;
+       popup.style.display = 'block'
+       setCookie(`${achievementName}_${userId}`, "true", 365)
+       achievementText.textContent = achievementName;
+
+      setTimeout(() => {
+    popup.style.opacity = 0;
+      }, 3000); // Exibir por 3 segundos
+    }
 }
+  
+
 
 
 if(!getCookie(`completePokemon__${userId}`)){
@@ -412,12 +430,28 @@ function animate(){
    coins.forEach((coin) => {
     coin.draw();
    
+    //conquistas
+
+    if(getCookie(`pokemon1Capture_${userId}`) && getCookie(`pokemon2Capture_${userId}`) && getCookie(`pokemon3Capture_${userId}`) && getCookie('contadorMoedas') >= 30){
+        setCookie(`completePokemon__${userId}`, "true", 365);
+        showAchievementPopup("Mapa Desbloqueado");
+    }
+    
+    if(getCookie(`pokemon1Capture_${userId}`) || getCookie(`pokemon2Capture_${userId}`) || getCookie(`pokemon3Capture_${userId}`)){
+        showAchievementPopup("Primeira Captura");
+    }
+
    if (!coin.collected && rectangularCollision({ rectangle1: player, rectangle2: coin })) {
       coin.collected = true;
       console.log('coletada')
       contadorMoedas++;
       document.getElementById('contadorMoedas').textContent = contadorMoedas
-
+      if(contadorMoedas == 1){
+        showAchievementPopup("Primeira Moeda");
+        }
+        else if(contadorMoedas == 30){
+        showAchievementPopup("Finalmente 30!");
+        }
       // Armazena o contadorMoedas em um cookie
       setCookie('contadorMoedas', contadorMoedas, 365);
       // Aqui você pode adicionar lógica para contabilizar as moedas

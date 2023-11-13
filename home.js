@@ -88,40 +88,8 @@ else{
         playSound("soundtrack/backgroundaudio.mp3");
     }
       
-      // Chame a função para simular a interação do usuário antes da reprodução de mídia
-
-/* 
-document.addEventListener('DOMContentLoaded', function() {
-const BackButton = document.getElementById('back_home');
-BackButton.addEventListener('click', function(){
-    setTimeout(playSound, 2000); 
-    playSound("soundtrack/backgroundaudio.mp3");
-    console.log('suave')
-})
-}); */
 
 
-/* window.onload = function audio() {
-    var musica = document.getElementById('musica');
-    var aumentarVolume = document.getElementById('aumentarVolume');
-    var diminuirVolume = document.getElementById('diminuirVolume');
-
-    aumentarVolume.addEventListener('click', function() {
-        if (musica.volume < 1) {
-            musica.volume += 0.1; // Aumenta o volume em 10%
-        }
-    });
-
-    diminuirVolume.addEventListener('click', function() {
-        if (musica.volume > 0) {
-            musica.volume -= 0.1; // Diminui o volume em 10%
-        }
-    });
-
-
-    // Inicia a reprodução programaticamente
-    musica.play();
-} */
 
 
 function playSound(audioname){
@@ -132,6 +100,7 @@ function playSound(audioname){
         
     })
 } 
+
 
 
     
@@ -174,3 +143,27 @@ function playSound(audioname){
     });
     
 
+// Função para definir um cookie
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// Função para obter o valor de um cookie
+function getCookie(name) {
+    const cname = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(cname) === 0) {
+            return c.substring(cname.length, c.length);
+        }
+    }
+    return "";
+}
