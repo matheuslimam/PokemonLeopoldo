@@ -189,3 +189,20 @@ h1 {
   .popup-button:hover {
       background-color: #da942c;
   }
+
+
+  /* Adicione estilos para as mensagens de conquista */
+  .achievement-box {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+}
+
+  .achievement-completed {
+    color: green;
+}
+
+  .achievement-not-completed {
+    color: red;
+}
