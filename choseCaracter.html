@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chose</title>
+    <title>Escolha seu personagem.</title>
+    <link rel="stylesheet" href="choseCaracter.css">
     <style>
 body {
     font-family: 'Arial', sans-serif;
@@ -42,13 +43,36 @@ body {
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Selecione seu Personagem</h1>
-        <div id="personagemSelecionado"></div>
-        <div class="personagem" onclick="selecionarPersonagem('personagem1')">Cesar4</div>
-        <div class="personagem" onclick="selecionarPersonagem('personagem2')">Lima</div>
-        <div class="personagem" onclick="selecionarPersonagem('personagem3')">Careca</div>
-        <div class="personagem" onclick="selecionarPersonagem('personagem4')">Dudu</div>
+    <div class="vertical-container">
+    <div><h1>Selecione seu Personagem</h1></div>
+    
+    <div class="container">        
+
+        <div class="child">
+            <div class="personagem" onclick="selecionarPersonagem('personagem1')">
+                <img height="385" width="280" src="imgs/CesarSalvador.jpg"/> 
+            </div>
+        <h2>Cesarquatro</h2></div>
+
+        <div class="child">
+            <div class="personagem" onclick="selecionarPersonagem('personagem2')">
+                <img height="385" width="280" src="imgs/CesarSalvador.jpg"/> 
+            </div>
+        <h2>Lima</h2></div>
+
+        <div class="child">
+            <div class="personagem" onclick="selecionarPersonagem('personagem3')">
+                <img height="385" width="280" src="imgs/CesarSalvador.jpg"/> 
+            </div>
+        <h2>Caricas</h2></div>
+        
+        <div class="child">
+            <div class="personagem" onclick="selecionarPersonagem('personagem4')">
+                <img height="385" width="280" src="imgs/CesarSalvador.jpg"/> 
+            </div>
+        <h2>Duduzinho</h2></div>
+        
+    </div>
     </div>
 <script>
 
