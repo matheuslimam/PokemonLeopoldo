@@ -33,49 +33,79 @@
             </div>
 
             <div class="child" id="achievement-box">
-                <!-- Divs separadas para cada conquista -->
-                <script>
-                    // Chamadas de exemplo
-                    checkAchievement('Primeira Captura', 'Faça sua primeira captura: ');
-                    checkAchievement('Primeira Moeda!', 'Colete sua primeira moeda: ');
-                    checkAchievement('Mapa Desbloqueado', 'Desbloquei um novo mapa: ');
-                    checkAchievement('Finalmente, 30!', 'Colete 30 moedas: ');
-                </script>
-            </div>
-
-            <div class="child" id="achievement-box">
-    
-                <script>
-                    checkAchievement('Primeira Moeda!', 'Colete sua primeira moeda: ', 'achievement-box-2');
-                </script>
-            </div>
-
-            <div class="child" id="achievement-box">
-                <script>
-                    checkAchievement('Mapa Desbloqueado', 'Desbloquei um novo mapa: ', 'achievement-box-3');
-                </script>
-            </div>
-
-            <div class="child" id="achievement-box">
-            
-                <script>
-                    // Exemplo de como você pode usar a função para verificar conquistas
-                    checkAchievement('Finalmente, 30!', 'Colete 30 moedas: ', 'achievement-box-4');
-                </script>
-            </div>
-
-                <h2>Estamos trabalhando duro para trazer um site<br>incrível
-                    para você. Volte em breve!</h2>
+                <!-- Div para conquista 1 -->
+                <div id="achievement-box-1"></div>
+                <!-- Div para conquista 2 -->
+                <div id="achievement-box-2"></div>
+                <!-- Div para conquista 3 -->
+                <div id="achievement-box-3"></div>
+                <!-- Div para conquista 4 -->
+                <div id="achievement-box-4"></div>
             </div>
         </div>
-        
-        <script src="diario.js">a</script>
-        <script src="home.js">a</script>
-        <script src="data/collisions.js"></script>
-        <script src="classes.js"></script>
-        <script src="walktest.js"></script>
-        <script src="navegação.js"></script>
-        <script src="fonte.js"></script>
+    
 
+    
+        <script>
+            // Função para verificar e adicionar conquista
+            function checkAchievement(title, description, containerId) {
+    
+                // Container padrão se não for especificado
+                containerId = containerId || "achievement-box";
+    
+                // Cria a div da conquista
+                var achievementDiv = document.createElement("div");
+                achievementDiv.innerHTML = `<h3>${title}</h3><p>${description}</p><p>----------------------------------------------------------------------------------------</p>`;
+    
+                // Adiciona a conquista ao contêiner
+                document.getElementById(containerId).appendChild(achievementDiv);
+            }
+    
+            const userId = localStorage.getItem('user_id');  
+
+                if(getCookie(`Primeira Captura_${userId}`)){ 
+                    checkAchievement('Primeira Captura', 'Faça sua primeira captura ', 'achievement-box-1');
+                }
+                
+                if(getCookie(`Primeira Moeda!_${userId}`)){
+                    checkAchievement('Primeira Moeda!', 'Colete sua primeira moeda ', 'achievement-box-2');
+                }
+                
+                if(getCookie(`Mapa Desbloqueado!_${userId}`)){
+                    checkAchievement('Mapa Desbloqueado', 'Desbloquei um novo mapa ', 'achievement-box-3');
+                }
+                
+                if(getCookie(`Finalmente, 30!_${userId}`)){
+                    checkAchievement('Finalmente, 30!', 'Colete 30 moedas ', 'achievement-box-4');
+                }
+
+
+
+            // Função para definir um cookie
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// Função para obter o valor de um cookie
+function getCookie(name) {
+    const cname = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(cname) === 0) {
+            return c.substring(cname.length, c.length);
+        }
+    }
+    return "";
+}
+        </script>
+        <script src="home.js">a</script>
     </body>
 </html>
