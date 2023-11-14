@@ -3,45 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic HTML Screen</title>
+    <title>chose</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #F5F5F5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 
-        .screen {
-            background-color: #FFF;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
+.container {
+    text-align: center;
+}
 
-        .button {
-            display: inline-block;
-            background-color: #007BFF;
-            color: #FFF;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
+.personagem {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .button:hover {
-            background-color: #0056B3;
-        }
+.personagem:hover {
+    background-color: #2980b9;
+}
+
+#personagemSelecionado {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
     </style>
 </head>
 <body>
-    <div class="screen">
-        <h1>Welcome to the Basic HTML Screen</h1>
-        <a href="home.html" class="button">Click me</a>
+    <div class="container">
+        <h1>Selecione seu Personagem</h1>
+        <div id="personagemSelecionado"></div>
+        <div class="personagem" onclick="selecionarPersonagem('personagem1')">Cesar4</div>
+        <div class="personagem" onclick="selecionarPersonagem('personagem2')">Lima</div>
+        <div class="personagem" onclick="selecionarPersonagem('personagem3')">Careca</div>
+        <div class="personagem" onclick="selecionarPersonagem('personagem4')">Dudu</div>
     </div>
-<script src="fonte.js"></script>
+<script>
+
+// Função para selecionar um personagem
+function selecionarPersonagem(nomePersonagem) {
+const userId = localStorage.getItem('user_id'); 
+
+    // Verificar qual personagem foi selecionado
+    if(nomePersonagem == "personagem1") {
+        // Definir um cookie com o nome do personagem
+        setCookie(`caracter__${userId}`, "cesar", 365);
+        window.location.href = "home.html";
+    } 
+    else if(nomePersonagem == "personagem2") {
+        setCookie(`caracter__${userId}`, "lima", 365);
+        window.location.href = "home.html";
+    } 
+    else if(nomePersonagem == "personagem3") {
+        setCookie(`caracter__${userId}`, "caricas", 365);
+        window.location.href = "home.html";
+    } 
+    else if(nomePersonagem == "personagem4") {
+        setCookie(`caracter__${userId}`, "dudu", 365);
+        window.location.href = "home.html";
+
+    }
+    document.getElementById('personagemSelecionado').innerText = 'Personagem Selecionado: ' + nomePersonagem;
+}
+
+// Função para definir um cookie
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+// Função para obter o valor de um cookie
+function getCookie(name) {
+    const cname = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(cname) === 0) {
+            return c.substring(cname.length, c.length);
+        }
+    }
+    return "";
+}
+
+</script>
 </body>
 </html>

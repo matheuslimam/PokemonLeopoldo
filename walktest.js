@@ -60,17 +60,51 @@ if (hora >= 6 && hora <= 18){
 }
 
 
+const userId = localStorage.getItem('user_id');
+
+//cria as imagens
 const playerDownImage = new Image()
-playerDownImage.src = 'imgs/cesinhafrente.png'
-
 const playerUpImage = new Image()
-playerUpImage.src = 'imgs/cesinhadecostas.png'
-
 const playerLeftImage = new Image()
-playerLeftImage.src = 'imgs/cesinhaesquerdista.png'
-
 const playerRightImage = new Image()
-playerRightImage.src = 'imgs/cesinhadireitista.png'
+
+if (getCookie(`caracter__${userId}`) == "cesar" ){
+
+    playerDownImage.src = 'imgs/cesinhafrente.png'
+    playerUpImage.src = 'imgs/cesinhadecostas.png'
+    playerLeftImage.src = 'imgs/cesinhaesquerdista.png'
+    playerRightImage.src = 'imgs/cesinhadireitista.png'
+
+}
+
+else if (getCookie(`caracter__${userId}`) == "lima" ){
+
+    console.log("lima");
+    playerDownImage.src = 'imgs/limafrente.png'
+    playerUpImage.src = 'imgs/limadecostas.png'
+    playerLeftImage.src = 'imgs/limaesquerdista.png'
+    playerRightImage.src = 'imgs/limadireitista.png'
+
+}
+else if (getCookie(`caracter__${userId}`) == "caricas" ){
+
+    playerDownImage.src = ''
+    playerUpImage.src = ''
+    playerLeftImage.src = ''
+    playerRightImage.src = ''
+
+}
+else if (getCookie(`caracter__${userId}`) == "dudu" ){
+
+    playerDownImage.src = ''
+    playerUpImage.src = ''
+    playerLeftImage.src = ''
+    playerRightImage.src = ''
+    
+}
+
+
+
 
 const player = new Sprite({
     position: {
@@ -92,7 +126,7 @@ const player = new Sprite({
 
 const followingCharacterSpeed = 3;
 
-const userId = localStorage.getItem('user_id');
+
 //cria as imagens
 const followingCharacterFront = new Image()
 const followingCharacterBack = new Image()
@@ -135,6 +169,7 @@ else if (getCookie(`userPokemon_${userId}`) == "Pikachu" ){
     followingCharacterRight.src = 'imgs/pikaright.png'
     
 }
+
 
 const followingCharacter = new Sprite({
     position: {
