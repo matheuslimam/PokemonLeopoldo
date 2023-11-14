@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" href="diario.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diário do Treinador</title>
+
+    </head>
+    <body>
+        <div class="popup-container" id="popup">
+            <div class="popup-box">
+                <h2>Você deseja ligar o som?</h2>
+                <div class="popup-buttons">
+                    <button class="popup-button" id="ligarSom">Sim</button>
+                    <button class="popup-button" id="naoLigarSom">Não</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="child" id="navbar">
+                <a href="home.html">
+                    <div id="back_home" class="back_home">
+                        <a href="home.html">
+                            <img class="icon" height="200%"
+                                src="icons\arrow_back.svg">
+                        </a>
+                    </div>
+                </a>
+                <h1>Diário do Treinador</h1>
+            </div>
+
+            <div class="child" id="achievement-box">
+                <!-- Divs separadas para cada conquista -->
+                <script>
+                    // Chamadas de exemplo
+                    checkAchievement('Primeira Captura', 'Faça sua primeira captura: ');
+                    checkAchievement('Primeira Moeda!', 'Colete sua primeira moeda: ');
+                    checkAchievement('Mapa Desbloqueado', 'Desbloquei um novo mapa: ');
+                    checkAchievement('Finalmente, 30!', 'Colete 30 moedas: ');
+                </script>
+            </div>
+
+            <div class="child" id="achievement-box">
+    
+                <script>
+                    checkAchievement('Primeira Moeda!', 'Colete sua primeira moeda: ', 'achievement-box-2');
+                </script>
+            </div>
+
+            <div class="child" id="achievement-box">
+                <script>
+                    checkAchievement('Mapa Desbloqueado', 'Desbloquei um novo mapa: ', 'achievement-box-3');
+                </script>
+            </div>
+
+            <div class="child" id="achievement-box">
+            
+                <script>
+                    // Exemplo de como você pode usar a função para verificar conquistas
+                    checkAchievement('Finalmente, 30!', 'Colete 30 moedas: ', 'achievement-box-4');
+                </script>
+            </div>
+
+                <h2>Estamos trabalhando duro para trazer um site<br>incrível
+                    para você. Volte em breve!</h2>
+            </div>
+        </div>
+        
+        <script src="diario.js">a</script>
+        <script src="home.js">a</script>
+        <script src="data/collisions.js"></script>
+        <script src="classes.js"></script>
+        <script src="walktest.js"></script>
+        <script src="navegação.js"></script>
+        <script src="fonte.js"></script>
+
+    </body>
+</html>
