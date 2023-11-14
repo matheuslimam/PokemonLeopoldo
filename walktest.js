@@ -458,13 +458,13 @@ function animate(){
 
   
 
-  if(hora >=1 && hora <= 2 && !getCookie(`pokemon1Capture_${userId}`)){
+  if(hora >=7 && hora <= 10 && !getCookie(`pokemon1Capture_${userId}`)){
     pokemon1.draw();
   }
-  if(hora >= 1 && hora <= 2 && !getCookie(`pokemon2Capture_${userId}`)){
+  if(hora >= 15 && hora <= 18 && !getCookie(`pokemon2Capture_${userId}`)){
    pokemon2.draw();
    }
-   else if(hora >= 1 && hora <= 2 && !getCookie(`pokemon3Capture_${userId}`)){
+   else if(hora >= 19 && hora <= 22 && !getCookie(`pokemon3Capture_${userId}`)){
    pokemon3.draw();
   }
    player.draw()
@@ -507,14 +507,14 @@ function animate(){
     }
   });
 
-if (isPlayerCollidingWithCharacter(player, pokemon1) && !getCookie(`pokemon1Capture_${userId}`) && hora >=1 && hora <= 2) {
+if (isPlayerCollidingWithCharacter(player, pokemon1) && !getCookie(`pokemon1Capture_${userId}`) && hora >=7 && hora <= 10) {
 
     console.log('Player capturou POKEMON1');
     pokemon1.position.x = 10000
     pokemon1.position.y = 10000
     setCookie(`pokemon1Capture_${userId}`, "true", 365)
 }
-else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon2Capture_${userId}`) && hora >= 1 && hora <= 2 ) {
+else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon2Capture_${userId}`) && hora >= 15 && hora <= 18 ) {
 
     console.log('Player capturou POKEMON2');
     pokemon2.position.x = 10000
@@ -522,7 +522,7 @@ else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon
     setCookie(`pokemon2Capture_${userId}`, "true", 365)
 }
 
-else if (isPlayerCollidingWithCharacter(player, pokemon3) && !getCookie(`pokemon3Capture_${userId}`) && hora >= 1 && hora <= 2 ) {
+else if (isPlayerCollidingWithCharacter(player, pokemon3) && !getCookie(`pokemon3Capture_${userId}`) && hora >= 19 && hora <= 22 ) {
 
     console.log('Player capturou POKEMON3');
     pokemon3.position.x = 10000
