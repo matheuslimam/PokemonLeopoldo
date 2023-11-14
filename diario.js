@@ -23,21 +23,24 @@ function getCookie(name) {
     return "";
 }
 
-// Função para verificar e processar uma conquista
 function checkAchievement(achievementName, message) {
+    console.log('Verificando conquista:', achievementName);
+
     const achievementBox = document.createElement('div');
     achievementBox.classList.add('achievement-box');
 
     if (getCookie(achievementName) !== 'true') {
-        // Conquista alcançada pela primeira vez
+        console.log('Conquista alcançada pela primeira vez:', achievementName);
         showAchievementPopup(message);
-        // Define o cookie para indicar que a conquista foi alcançada
+        setCookie(achievementName, 'true', 365);
         achievementBox.textContent = message + "Concluído";
         achievementBox.classList.add('achievement-completed');
     } else {
+        console.log('Conquista já alcançada:', achievementName);
         achievementBox.textContent = message + "Não concluído";
         achievementBox.classList.add('achievement-not-completed');
     }
 
     document.body.appendChild(achievementBox);
 }
+
