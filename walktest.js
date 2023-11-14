@@ -445,6 +445,7 @@ else{
     }else{
         window.location.href = "loading2.html";
         setCookie(`mapa2__${userId}`, "true", 365);
+        setCookie('contadorMoedas', contadorMoedas-30, 365);
     }
     
 }
