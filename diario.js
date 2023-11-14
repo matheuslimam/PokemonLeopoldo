@@ -32,10 +32,10 @@ function checkAchievement(achievementName, message) {
         // Conquista alcançada pela primeira vez
         showAchievementPopup(message);
         // Define o cookie para indicar que a conquista foi alcançada
-        achievementBox.textContent = message + ": Concluído";
+        achievementBox.textContent = message + "Concluído";
         achievementBox.classList.add('achievement-completed');
     } else {
-        achievementBox.textContent = message + ": Não concluído";
+        achievementBox.textContent = message + "Não concluído";
         achievementBox.classList.add('achievement-not-completed');
     }
 
