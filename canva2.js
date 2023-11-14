@@ -53,9 +53,9 @@ const hora = new Date().getHours()
 //muda de dia para noite
 const image = new Image()
 if (hora >= 6 && hora <= 18){
-    image.src = 'imgs/Pellet Town.png'
+    image.src = 'imgs/Map2_day.png'
 } else {
-    image.src = 'imgs/Pellet Town Night.png'
+    image.src = 'imgs/Map2_night.png'
     
 }
 
