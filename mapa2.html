@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa2</title>
+    <link rel="stylesheet" href="mapa2.css">
+
+</head>
+<body>
+<canvas style="z-index: 0;"></canvas>
+
+<div id="achievementPopup" class="hidden">
+    <div class="achievement-content">
+      <span class="achievement-icon">🏆</span>
+      <div class="achievement-text">
+        <h2 class="achievement-title" id="achievementTitle">Conquista Desbloqueada</h2>
+        <p id="achievementText">Você alcançou algo incrível!</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="popup-container" id="popup">
+    <div class="popup-box">
+        <h2>Você deseja ligar o som?</h2>
+        <div class="popup-buttons">
+            <button class="popup-button" id="ligarSom">Sim</button>
+            <button class="popup-button" id="naoLigarSom">Não</button>
+        </div>
+    </div>
+</div>
+
+    <div class="mapa">
+        <!-- Seu mapa principal aqui -->
+    </div>
+    <div id="contador" class="contador">
+        
+        <img src="imgs/moeda.png" alt="Moeda">
+        <span id="contadorMoedas" class="contadorMoedas">0</span>
+    </div>
+    <div id="horario" class="horario">
+        <span id="horarioAtual"></span>
+    </div>
+    
+    <nav id="navbar" class="navbar">
+        <ul>
+            <li><a href="config.html">
+                <img class="icon" src="imgs/configuracoes.png" alt="Configurações" tabindex="0"></a>
+            </li>
+            <li><a href="diario.html">
+                <img class="icon" src="imgs/gestao-de-inventario.png" alt="Inventário" tabindex="0">
+            </a>
+        </li>
+            <li><a href="Pokedex.html">
+                <img class="icon" src="imgs/pokebola.png" alt="Pokedex" tabindex="0">
+            </a>
+        </li>
+        </ul>
+    </nav>
+
+    <div id="time" class="time">
+        <div style="z-index: 5;" id="google_translate_element"></div>
+        <a href="Time.html">
+            <img class="icon" src="imgs/time-azul.png" alt="Seleção de time" tabindex="0">
+        </a>
+    </div>
+
+    <div id="perfil" class="perfil">
+        <a href="Perfil.html">
+            <img class="icon" src="imgs/treinador-de-pokemon.png" alt="Perfil de Treinador" tabindex="0">
+        </a>
+    </div>
+    <div id="location" class="location">
+        <p>Rio Preto Paulista</p>
+    </div>
+
+
+    
+    
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="mapa2.js">a</script>
+<script src="data/collisions.js"></script>
+<script src="classes.js"></script>
+<script src="canva2.js"></script>
+<script src="navegação.js"></script>
+<script src="fonte.js"></script>
+</body>
+</html>

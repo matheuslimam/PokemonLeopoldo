@@ -103,9 +103,6 @@ else if (getCookie(`caracter__${userId}`) == "dudu" ){
     
 }
 
-
-
-
 const player = new Sprite({
     position: {
       x: canvas.width * 2 -115,
@@ -235,22 +232,7 @@ const pokemon3 = new Sprite({
 });
 
 
-const NPCpic = new Image();
-NPCpic.src = "imgs/NPCspritepescadorv2.png";
 
-const NPC = new Sprite({
-    position: {
-        x: 1700,
-        y: 200,
-    },
-    image: NPCpic,
-    frames: {
-        max: 4,
-    },
-    sprites: {
-        up: NPCpic,
-        }
-});
 
 
 
@@ -338,10 +320,7 @@ setCookie('coinsPushed', "true", 0.02);
 coinsPushed = true;
 }
 
-
-
-
-const movables = [background, ...boundaries, ...coins, NPC, pokemon1, pokemon2, pokemon3]
+const movables = [background, ...boundaries, ...coins]
 
 function rectangularCollision({rectangle1, rectangle2}){
  return(
@@ -381,9 +360,6 @@ function getCookie(name) {
 let contadorMoedas = parseInt(getCookie('contadorMoedas')) || 0;
 document.getElementById('contadorMoedas').textContent = contadorMoedas;
 
-
-
-
 function showAchievementPopup(achievementName) {
 
     const userId = localStorage.getItem('user_id');    
@@ -407,48 +383,6 @@ function showAchievementPopup(achievementName) {
 }
   
 
-
-
-if(!getCookie(`completePokemon__${userId}`)){
-
-const instructionsArray = [
-    'Para ir para a próxima vila e completar sua missão, você deve recrutar 3 pokémons para o seu time!',
-    'os Pokemons irão aparecer às 7, 15 e 19 horas para você captura-los',
-    'Explore as áreas circundantes para encontrar novos pokémons!',
-    'Lembre-se de pegar as moedas espalhadas pelo mapa, você vai precisar de 30!',
-    'Converse com outros NPCs para obter dicas valiosas sobre a região!'
-];
-
-// Variável para rastrear a instrução atual
-let currentInstructionIndex = 0;
-
-// Função para obter a próxima instrução
-function getNextInstruction() {
-    const instruction = instructionsArray[currentInstructionIndex];
-    currentInstructionIndex = (currentInstructionIndex + 1) % instructionsArray.length; // Avança para a próxima instrução
-    return instruction;
-}
-
-// Inicia o temporizador uma vez fora do bloco if
-const instructionTimer = setInterval(function() {
-    const popup2 = document.getElementById('popup2');
-    const instructions = document.getElementById('instructions');
-    instructions.textContent = getNextInstruction();
-    popup2.style.display = 'flex';
-}, 5000);
-}
-else{
-    instructions.textContent = "Parabéns você concluiu sua missão aqui"
-    instructions2.textContent = "Vamos te levar ao outro mapa em instantes";
-    if(getCookie(`mapa2__${userId}`)){
-        window.location.href = "mapa2.html";
-    }else{
-        window.location.href = "loading2.html";
-        setCookie(`mapa2__${userId}`, "true", 365);
-    }
-    
-}
-
 function animate(){
     window.requestAnimationFrame(animate)
     background.draw()
@@ -458,48 +392,20 @@ function animate(){
 
   
 
-  if(hora >=1 && hora <= 2 && !getCookie(`pokemon1Capture_${userId}`)){
-    pokemon1.draw();
-  }
-  if(hora >= 1 && hora <= 2 && !getCookie(`pokemon2Capture_${userId}`)){
-   pokemon2.draw();
-   }
-   else if(hora >= 1 && hora <= 2 && !getCookie(`pokemon3Capture_${userId}`)){
-   pokemon3.draw();
-  }
    player.draw()
    
    //pescador.draw();
-   NPC.draw()
+
    followingCharacter.draw()
 
-   //conquistas
- if(getCookie(`pokemon1Capture_${userId}`) && getCookie(`pokemon2Capture_${userId}`) && getCookie(`pokemon3Capture_${userId}`) && getCookie('contadorMoedas') >= 30){
-        setCookie(`completePokemon__${userId}`, "true", 365);
-        showAchievementPopup("Mapa Desbloqueado");
-    }
-    
-    
-
-    if(getCookie(`pokemon1Capture_${userId}`) || getCookie(`pokemon2Capture_${userId}`) || getCookie(`pokemon3Capture_${userId}`) && showAchievementPopup("Primeira Captura")){
-        showAchievementPopup("Primeira Captura");
-    }
-   
    coins.forEach((coin) => {
     coin.draw();
-   
-    //conquistas
+
    if (!coin.collected && rectangularCollision({ rectangle1: player, rectangle2: coin })) {
       coin.collected = true;
       console.log('coletada')
       contadorMoedas++;
       document.getElementById('contadorMoedas').textContent = contadorMoedas
-      if(contadorMoedas == 1){
-        showAchievementPopup("Primeira Moeda!");
-        }
-        else if(contadorMoedas == 30){
-        showAchievementPopup("Finalmente, 30!");
-        }
       // Armazena o contadorMoedas em um cookie
       setCookie('contadorMoedas', contadorMoedas, 365);
       // Aqui você pode adicionar lógica para contabilizar as moedas
@@ -507,45 +413,8 @@ function animate(){
     }
   });
 
-if (isPlayerCollidingWithCharacter(player, pokemon1) && !getCookie(`pokemon1Capture_${userId}`) && hora >=1 && hora <= 2) {
-
-    console.log('Player capturou POKEMON1');
-    pokemon1.position.x = 10000
-    pokemon1.position.y = 10000
-    setCookie(`pokemon1Capture_${userId}`, "true", 365)
-}
-else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon2Capture_${userId}`) && hora >= 1 && hora <= 2 ) {
-
-    console.log('Player capturou POKEMON2');
-    pokemon2.position.x = 10000
-    pokemon2.position.y = 10000
-    setCookie(`pokemon2Capture_${userId}`, "true", 365)
-}
-
-else if (isPlayerCollidingWithCharacter(player, pokemon3) && !getCookie(`pokemon3Capture_${userId}`) && hora >= 1 && hora <= 2 ) {
-
-    console.log('Player capturou POKEMON3');
-    pokemon3.position.x = 10000
-    pokemon3.position.y = 10000
-    setCookie(`pokemon3Capture_${userId}`, "true", 365)
-}
-
-
-if (isPlayerCollidingWithCharacter(player, NPC)) {
-   
-    const popup2 = document.getElementById('popup2');
-    popup2.style.display = 'flex';
-} 
-else {
-    popup2.style.display = 'none';
-    //clearInterval(instructionTimer);
-}
-
     
     let moving = true
-
-    NPC.moving = true
-    NPC.image = NPC.sprites.up
 
     player.moving = false
     followingCharacter.moving = false

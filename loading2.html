@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>loading</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body {
+            background-image: url('imgs/loadingpokeboll.gif');
+            background-size:30%;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #181b1d;
+            text-align: center;
+        }
+
+        #loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+
+        p {
+            margin-top: 25%;
+            text-align: center;
+            font-size: 22px;
+            font-family: 'Pokemon Solid', sans-serif;
+            color: #fffb00;
+            -webkit-text-stroke: 0.2px rgb(9, 98, 199);
+            text-shadow: 2px 2px 7px rgba(0, 0, 0, 10);
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div id="loading-container">
+        <p> Novo mapa em <span id="contador">5</span></p>
+    </div>
+
+    
+
+    <script>
+        function hasUserEntered(userId) {
+            return getCookie(`mapa2__${userId}`);
+        }
+        //esperando o deploy
+        const userId = localStorage.getItem('user_id');
+        const userName = localStorage.getItem('user_name');
+
+        if (hasUserEntered(userId)) {
+            function redirecionar() {
+                var contadorElement = document.getElementById("contador");
+                var segundos = parseInt(contadorElement.textContent);
+
+                if (segundos > 0) {
+                    segundos--;
+                    contadorElement.textContent = segundos;
+                    setTimeout(redirecionar, 1000);
+                } else {
+                    window.location.href = "mapa2.html";
+                }
+            }
+
+            window.onload = function () {
+                setTimeout(redirecionar, 1000);
+            }
+        }else{
+            window.location.href = "home.html";
+        }
+
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+            const cname = name + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(cname) === 0) {
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+</html>
