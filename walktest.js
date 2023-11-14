@@ -88,18 +88,18 @@ else if (getCookie(`caracter__${userId}`) == "lima" ){
 }
 else if (getCookie(`caracter__${userId}`) == "caricas" ){
 
-    playerDownImage.src = ''
-    playerUpImage.src = ''
-    playerLeftImage.src = ''
-    playerRightImage.src = ''
+    playerDownImage.src = 'imgs/carecafrente.png'
+    playerUpImage.src = 'imgs/carecadecostas.png'
+    playerLeftImage.src = 'imgs/carecaesquerdista.png'
+    playerRightImage.src = 'imgs/carecadireitista.png'
 
 }
 else if (getCookie(`caracter__${userId}`) == "dudu" ){
 
-    playerDownImage.src = ''
-    playerUpImage.src = ''
-    playerLeftImage.src = ''
-    playerRightImage.src = ''
+    playerDownImage.src = 'imgs/dudufrente.png'
+    playerUpImage.src = 'imgs/dududecostas.png'
+    playerLeftImage.src = 'imgs/duduesquerdista.png'
+    playerRightImage.src = 'imgs/dududireitista.png'
     
 }
 
