@@ -52,7 +52,7 @@ const hora = new Date().getHours()
 
 //muda de dia para noite
 const image = new Image()
-if (hora >= 6 && hora <= 18){
+if (hora >= 6 && hora <= 12){
     image.src = 'imgs/Pellet Town.png'
 } else {
     image.src = 'imgs/Pellet Town Night.png'
@@ -459,13 +459,13 @@ function animate(){
 
   
 
-  if(hora >=7 && hora <= 10 && !getCookie(`pokemon1Capture_${userId}`)){
+  if(hora >=12 && hora <= 15 && !getCookie(`pokemon1Capture_${userId}`)){
     pokemon1.draw();
   }
-  if(hora >= 15 && hora <= 18 && !getCookie(`pokemon2Capture_${userId}`)){
+  if(hora >= 12 && hora <= 15 && !getCookie(`pokemon2Capture_${userId}`)){
    pokemon2.draw();
    }
-   else if(hora >= 19 && hora <= 22 && !getCookie(`pokemon3Capture_${userId}`)){
+   else if(hora >= 12 && hora <= 15 && !getCookie(`pokemon3Capture_${userId}`)){
    pokemon3.draw();
   }
    player.draw()
@@ -508,14 +508,14 @@ function animate(){
     }
   });
 
-if (isPlayerCollidingWithCharacter(player, pokemon1) && !getCookie(`pokemon1Capture_${userId}`) && hora >=7 && hora <= 10) {
+if (isPlayerCollidingWithCharacter(player, pokemon1) && !getCookie(`pokemon1Capture_${userId}`) && hora >=12 && hora <= 15) {
 
     console.log('Player capturou POKEMON1');
     pokemon1.position.x = 10000
     pokemon1.position.y = 10000
     setCookie(`pokemon1Capture_${userId}`, "true", 365)
 }
-else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon2Capture_${userId}`) && hora >= 15 && hora <= 18 ) {
+else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon2Capture_${userId}`) && hora >= 12 && hora <= 15 ) {
 
     console.log('Player capturou POKEMON2');
     pokemon2.position.x = 10000
@@ -523,7 +523,7 @@ else if (isPlayerCollidingWithCharacter(player, pokemon2) && !getCookie(`pokemon
     setCookie(`pokemon2Capture_${userId}`, "true", 365)
 }
 
-else if (isPlayerCollidingWithCharacter(player, pokemon3) && !getCookie(`pokemon3Capture_${userId}`) && hora >= 19 && hora <= 22 ) {
+else if (isPlayerCollidingWithCharacter(player, pokemon3) && !getCookie(`pokemon3Capture_${userId}`) && hora >= 12 && hora <= 15 ) {
 
     console.log('Player capturou POKEMON3');
     pokemon3.position.x = 10000
